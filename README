@@ -1,2 +1,2 @@
-SpringBoard (Launcher) implementation for iOS that supports drag/drop from icons between several boards. 
+HMLaucherView is a UI component which mimics the iOS homescreen (a.k.a SpringBoard) behaviour. Added icons can be reordered and removed. In addition the HMLauncherView supports drag&drop of icons between several HMLauncherView instances.
 
