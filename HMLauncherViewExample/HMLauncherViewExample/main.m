@@ -1,9 +1,9 @@
 //
 //  main.m
-//  LauncherViewExample
+//  HMLauncherViewExample
 //
-//  Created by hmaass on 25.10.11.
-//  Copyright (c) 2011 Heiko Maass. All rights reserved.
+//  Created by Heiko Maaß on 28.02.12.
+//  Copyright (c) 2012 Heiko Maass. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
