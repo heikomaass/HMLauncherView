@@ -16,6 +16,7 @@
 #import "LauncherService.h"
 #import "HMLauncherItem.h"
 #import "HMLauncherIcon.h"
+#import "LauncherExampleIcon.h"
 #import "HMLauncherView.h"
 #import "HMLauncherData.h"
 
@@ -183,7 +184,7 @@
     [launcherItem setIconPath:imagePath];
     [launcherItem setIconBackgroundPath:imageBackgroundPath];
     
-    HMLauncherIcon *launcherIcon = [[HMLauncherIcon alloc] initWithLauncherItem:launcherItem];
+    LauncherExampleIcon *launcherIcon = [[LauncherExampleIcon alloc] initWithLauncherItem:launcherItem];
     [launcherIcon setCanBeTapped:YES];
     [launcherIcon setCanBeDragged:YES];    
     [launcherItem release];

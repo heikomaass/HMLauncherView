@@ -17,21 +17,19 @@
 @class HMLauncherView;
 @class HMLauncherItem;
 
+// Baseclass for an Icon. You've to extend from this class.
+// See LauncherExampleIcon.h for an example.
 @interface HMLauncherIcon : UIControl {
 }
-@property (nonatomic, assign) CGRect closeRect;
 @property (nonatomic, assign) BOOL canBeDeleted;
 @property (nonatomic, assign) BOOL canBeDragged;
 @property (nonatomic, assign) BOOL canBeTapped;
 @property (nonatomic, assign) BOOL hideDeleteImage;
-@property (nonatomic, retain) UIImage *iconImage;
-@property (nonatomic, retain) UIImage *closeImage;
 @property (nonatomic, retain) NSString *identifier;
 @property (nonatomic, retain) NSIndexPath *originIndexPath;
 @property (nonatomic, retain) HMLauncherItem *launcherItem;
 
 - (BOOL) hitCloseButton:(CGPoint) point;
 - (id) initWithLauncherItem: (HMLauncherItem*) launcherItem;
-
 
 @end
