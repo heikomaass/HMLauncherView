@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8339FD9414FE582E003BB71C /* LauncherExampleIcon.m in Sources */ = {isa = PBXBuildFile; fileRef = 8339FD9314FE582E003BB71C /* LauncherExampleIcon.m */; };
 		83DE160614FD9236005E1F97 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83DE160514FD9236005E1F97 /* UIKit.framework */; };
 		83DE160814FD9236005E1F97 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83DE160714FD9236005E1F97 /* Foundation.framework */; };
 		83DE160A14FD9236005E1F97 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83DE160914FD9236005E1F97 /* CoreGraphics.framework */; };
@@ -75,6 +76,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8339FD9214FE582E003BB71C /* LauncherExampleIcon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LauncherExampleIcon.h; sourceTree = "<group>"; };
+		8339FD9314FE582E003BB71C /* LauncherExampleIcon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LauncherExampleIcon.m; sourceTree = "<group>"; };
 		83DE160114FD9236005E1F97 /* HMLauncherViewExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HMLauncherViewExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83DE160514FD9236005E1F97 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		83DE160714FD9236005E1F97 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -181,6 +184,8 @@
 				83DE165D14FD9302005E1F97 /* LauncherViewController.m */,
 				83DE163614FD92F4005E1F97 /* AppDelegate.h */,
 				83DE160C14FD9236005E1F97 /* Supporting Files */,
+				8339FD9214FE582E003BB71C /* LauncherExampleIcon.h */,
+				8339FD9314FE582E003BB71C /* LauncherExampleIcon.m */,
 			);
 			path = HMLauncherViewExample;
 			sourceTree = "<group>";
@@ -365,6 +370,7 @@
 				83DE167E14FD9302005E1F97 /* LauncherParentView.m in Sources */,
 				83DE167F14FD9302005E1F97 /* LauncherService.m in Sources */,
 				83DE168014FD9302005E1F97 /* LauncherViewController.m in Sources */,
+				8339FD9414FE582E003BB71C /* LauncherExampleIcon.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
