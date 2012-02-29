@@ -14,6 +14,7 @@
 // limitations under the License.
 
 #import "HMLauncherView.h"
+#import "HMLauncherItem.h"
 
 static const CGFloat kShakeRadians = 3.0f;
 static const NSTimeInterval kShakeTime = 0.15;
@@ -306,12 +307,14 @@ static const CGFloat kLongPressDuration = 0.3;
     HMLauncherIcon *launcherIcon = (HMLauncherIcon*) sender.view;
     CGPoint locationInView = [sender locationOfTouch:0 inView:launcherIcon];
     if (self.editing && [launcherIcon hitCloseButton:locationInView]) {
+        NSString *message = [NSString stringWithFormat:NSLocalizedString(@"HMLauncherView_ConfirmDelete", nil), launcherIcon.launcherItem.titleText];
         
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Common_Alert", nil) 
-                                                            message:NSLocalizedString(@"Common_DELETE_CONFIRM", nil) 
+        
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"HMLauncherView_Alert", nil) 
+                                                            message:message
                                                            delegate:self 
-                                                  cancelButtonTitle:NSLocalizedString(@"Common_CANCEL",nil)
-                                                  otherButtonTitles:NSLocalizedString(@"Common_OK", nil), nil];
+                                                  cancelButtonTitle:NSLocalizedString(@"HMLauncherView_Cancel",nil)
+                                                  otherButtonTitles:NSLocalizedString(@"HMLauncherView_Ok", nil), nil];
         self.closingIcon = launcherIcon;
         [alertView show];
         [alertView release];
@@ -732,6 +735,7 @@ static const CGFloat kLongPressDuration = 0.3;
                              ] autorelease];
         [self.pageControl setHidesForSinglePage:YES];
         [self addSubview:self.pageControl];
+
     }
     return self;
 }

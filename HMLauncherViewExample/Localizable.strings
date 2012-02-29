@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  HMLauncherViewExample
+
+  Created by Heiko Maaß on 29.02.12.
+  Copyright (c) 2012 Heiko Maass. All rights reserved.
+*/
+HMLauncherView_Alert = "Alert";
+HMLauncherView_ConfirmDelete = "Do you really want to delete '%@' ?";
+HMLauncherView_Ok = "Ok";
+HMLauncherView_Cancel = "Cancel";

@@ -48,34 +48,24 @@
     [self.iconImage drawInRect:buttonRect blendMode:kCGBlendModeOverlay alpha:alpha];
     
     // Close Button
-    //    if (!self.hideDeleteImage) {
-    //        [[UIColor gsYellow] setFill];
-    //        CGContextFillEllipseInRect(context, self.closeRect);
-    //        [self.closeImage drawInRect:self.closeRect];
-    //    } else if (!self.hideStarImage) {
-    //        // Star Image
-    //        [self.starImage drawInRect:self.starRect];
-    //    }
-    
+    if (!self.hideDeleteImage) {
+        [self.closeImage drawInRect:self.closeRect];
+    } 
     // Text
-    //    y += buttonRect.size.height + 3;
-    //    UIFont *font = [UIFont fontForCellSmall];
-    //    [[UIColor blackColor] setFill];
-    //    
-    //    NSString *text = self.item.titleText;
-    //    if (self.item.titleTextWithDelimiter != nil) {
-    //        text = self.item.titleTextWithDelimiter;
-    //    }
-    //    
-    //    CGSize maxTextSize = CGSizeMake(availableWidth, self.bounds.size.height - y);
-    //    CGSize textSize = [text sizeWithFont:font 
-    //                       constrainedToSize:maxTextSize 
-    //                           lineBreakMode:UILineBreakModeWordWrap];
-    //    
-    //    x = floor((self.bounds.size.width - textSize.width) / 2);
-    //    CGRect textRect = CGRectMake(x, y, textSize.width, textSize.height);
-    //    CGContextSetAlpha(context, alpha);
-    //    [text drawInRect:textRect withFont:[UIFont fontForCellSmall] lineBreakMode:UILineBreakModeWordWrap alignment:UITextAlignmentCenter];
+    y += buttonRect.size.height + 3;
+    UIFont *font = [UIFont systemFontOfSize:14.0];
+    [[UIColor whiteColor] setFill];
+    
+    NSString *text = self.launcherItem.titleText;
+    CGSize maxTextSize = CGSizeMake(availableWidth, self.bounds.size.height - y);
+    CGSize textSize = [text sizeWithFont:font 
+                       constrainedToSize:maxTextSize 
+                           lineBreakMode:UILineBreakModeWordWrap];
+    
+    x = floor((self.bounds.size.width - textSize.width) / 2);
+    CGRect textRect = CGRectMake(x, y, textSize.width, textSize.height);
+    CGContextSetAlpha(context, alpha);
+    [text drawInRect:textRect withFont:font lineBreakMode:UILineBreakModeWordWrap alignment:UITextAlignmentCenter];
     
 }
 
@@ -113,7 +103,8 @@
 
 - (id) initWithLauncherItem:(HMLauncherItem *)launcherItem {
     if (self = [super initWithLauncherItem:launcherItem]) {
-        closeRect = CGRectMake(0, 5, 20, 20);
+        closeRect = CGRectMake(2
+                               , 5, 20, 20);
         [self setCloseImage: [UIImage imageNamed:@"close.png"]];
         [self setIconImageFromIconPath:self.launcherItem.iconPath];
         NSParameterAssert(self.iconImage != nil);

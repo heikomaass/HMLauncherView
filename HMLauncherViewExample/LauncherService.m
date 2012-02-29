@@ -23,7 +23,9 @@
 
 @interface LauncherService() 
 - (HMLauncherData*) launcherDataFor:(HMLauncherView*) launcherView;
-- (HMLauncherIcon*) launcherIconForTitle:(NSString*) titleText imageBackgroundPath:(NSString*) imageBackgroundPath;
+- (HMLauncherIcon*) launcherIconForTitle:(NSString*) titleText 
+                               imagePath:(NSString*) imagePath
+                     imageBackgroundPath:(NSString*) imageBackgroundPath;
 @end
 
 @implementation LauncherService
@@ -147,14 +149,24 @@
 
 - (void) loadLauncherData {
     NSParameterAssert(self.launcherDataLeft != nil);
+    NSString *lorem = @"Lorem ipsum dolor sit amet consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut";
+    NSArray *loremArray = [lorem componentsSeparatedByString:@" "];
+    
     NSString *imageBackgroundLightPath = @"icon_border_bold_light.png";
 
     // Add some dummy icons for launcherview on the left side.
     for (int i=1;i<15;i++) {
-        NSString *titleText = [NSString stringWithFormat:@"%d", i];
+        NSString *imagePath = [NSString stringWithFormat:@"%d.png", i];
+        NSString *titleText = [loremArray objectAtIndex:i];
         HMLauncherIcon *icon = [self launcherIconForTitle:titleText
+                                      imagePath:imagePath
                                       imageBackgroundPath:imageBackgroundLightPath];
-        [self.launcherDataLeft addIcon:icon];                
+        if (i %2 == 0) {
+            [icon setCanBeDeleted:YES];
+        }
+        
+        [self.launcherDataLeft addIcon:icon];          
+        
     }
 
     NSString *imageBackgroundDarkPath = @"icon_border_bold_dark.png";
@@ -162,31 +174,37 @@
     // Add some dummy icons for launcherview on the right side.
     char start = 'a';
     for (int i=1;i<14;i++) {
-        NSString *titleText = [NSString stringWithFormat:@"%c", start];
+        NSString *titleText = [loremArray objectAtIndex:i];
+        NSString *imagePath = [NSString stringWithFormat:@"%c.png", start];
         HMLauncherIcon *icon = [self launcherIconForTitle:titleText
+                                      imagePath:imagePath
                                       imageBackgroundPath:imageBackgroundDarkPath];
+        if (i %2 == 1) {
+            [icon setCanBeDeleted:YES];
+        }        
         [self.launcherDataRight addIcon:icon];
         start++;
     }
 }
 
-- (HMLauncherIcon*) launcherIconForTitle:(NSString*) titleText imageBackgroundPath:(NSString*) imageBackgroundPath {
+- (HMLauncherIcon*) launcherIconForTitle:(NSString*) titleText
+                               imagePath:(NSString*) imagePath 
+                     imageBackgroundPath:(NSString*) imageBackgroundPath {
     NSParameterAssert(titleText != nil);
     NSString *titleLowercase  = [titleText lowercaseString];
     NSString *titleReplaced = [titleLowercase stringByReplacingOccurrencesOfString:@" " withString:@"_"];    
     NSString *identifier = [NSString stringWithFormat:@"static_%@", titleReplaced];
-    NSString *imagePath  = [NSString stringWithFormat:@"%@.png", titleReplaced];
-
     
     HMLauncherItem *launcherItem = [[HMLauncherItem alloc] init];
     [launcherItem setIdentifier:identifier];
     [launcherItem setTitleText:titleText];
     [launcherItem setIconPath:imagePath];
     [launcherItem setIconBackgroundPath:imageBackgroundPath];
-    
     LauncherExampleIcon *launcherIcon = [[LauncherExampleIcon alloc] initWithLauncherItem:launcherItem];
     [launcherIcon setCanBeTapped:YES];
-    [launcherIcon setCanBeDragged:YES];    
+    [launcherIcon setCanBeDragged:YES];   
+
+    
     [launcherItem release];
     return [launcherIcon autorelease]; 
 }

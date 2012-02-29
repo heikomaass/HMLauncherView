@@ -17,6 +17,7 @@
 #import "HMLauncherView.h"
 
 #define BUTTON_SPACER 10
+#define PAGECONTROL_HEIGHT 20
 
 @interface LauncherParentView(private)
 - (CGRect) centerRectForLauncherView:(HMLauncherView*) launcherView parentRect:(CGRect) parentRect;
@@ -52,7 +53,7 @@
     CGRect launcherViewRect = CGRectMake(parentRect.origin.x,
                                          parentRect.origin.y, 
                                          cols * (buttonDimensionsInLauncherView.width + BUTTON_SPACER) ,
-                                         rows * buttonDimensionsInLauncherView.height);
+                                         (rows * buttonDimensionsInLauncherView.height) + PAGECONTROL_HEIGHT);
     
     CGRect centeredLauncherViewRect = launcherViewRect;
     centeredLauncherViewRect.origin.x = parentRect.origin.x + (parentRect.size.width / 2  - launcherViewRect.size.width / 2);

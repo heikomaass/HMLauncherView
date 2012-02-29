@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		8339FD9414FE582E003BB71C /* LauncherExampleIcon.m in Sources */ = {isa = PBXBuildFile; fileRef = 8339FD9314FE582E003BB71C /* LauncherExampleIcon.m */; };
+		8339FD9614FE649E003BB71C /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = 8339FD9514FE649E003BB71C /* close.png */; };
+		8339FDA714FE7045003BB71C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8339FDA614FE7045003BB71C /* Localizable.strings */; };
 		83DE160614FD9236005E1F97 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83DE160514FD9236005E1F97 /* UIKit.framework */; };
 		83DE160814FD9236005E1F97 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83DE160714FD9236005E1F97 /* Foundation.framework */; };
 		83DE160A14FD9236005E1F97 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83DE160914FD9236005E1F97 /* CoreGraphics.framework */; };
@@ -78,6 +80,8 @@
 /* Begin PBXFileReference section */
 		8339FD9214FE582E003BB71C /* LauncherExampleIcon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LauncherExampleIcon.h; sourceTree = "<group>"; };
 		8339FD9314FE582E003BB71C /* LauncherExampleIcon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LauncherExampleIcon.m; sourceTree = "<group>"; };
+		8339FD9514FE649E003BB71C /* close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close.png; sourceTree = "<group>"; };
+		8339FDA614FE7045003BB71C /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		83DE160114FD9236005E1F97 /* HMLauncherViewExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HMLauncherViewExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83DE160514FD9236005E1F97 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		83DE160714FD9236005E1F97 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -197,6 +201,7 @@
 				83DE160E14FD9236005E1F97 /* InfoPlist.strings */,
 				83DE161114FD9236005E1F97 /* main.m */,
 				83DE161314FD9236005E1F97 /* HMLauncherViewExample-Prefix.pch */,
+				8339FDA614FE7045003BB71C /* Localizable.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -213,6 +218,7 @@
 		83DE163814FD9302005E1F97 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				8339FD9514FE649E003BB71C /* close.png */,
 				83DE163914FD9302005E1F97 /* 1.png */,
 				83DE163A14FD9302005E1F97 /* 10.png */,
 				83DE163B14FD9302005E1F97 /* 10.xcf */,
@@ -355,6 +361,8 @@
 				83DE167B14FD9302005E1F97 /* k.png in Resources */,
 				83DE167C14FD9302005E1F97 /* l.png in Resources */,
 				83DE167D14FD9302005E1F97 /* m.png in Resources */,
+				8339FD9614FE649E003BB71C /* close.png in Resources */,
+				8339FDA714FE7045003BB71C /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
