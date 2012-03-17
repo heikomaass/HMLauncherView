@@ -231,7 +231,7 @@
 		83DE159F14FD8FF2005E1F97 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0430;
 				ORGANIZATIONNAME = "Heiko Maass";
 			};
 			buildConfigurationList = 83DE15A214FD8FF2005E1F97 /* Build configuration list for PBXProject "HMLauncherView" */;

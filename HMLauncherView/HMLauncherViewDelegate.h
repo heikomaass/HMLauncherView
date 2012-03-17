@@ -37,5 +37,7 @@
 
 - (void) launcherViewDidStopEditing:(HMLauncherView*) launcherView;
 
+
+// Returns the HMLauncherView, which will embed the icon, when the dragging ends.
 - (HMLauncherView*) targetLauncherViewForIcon:(HMLauncherIcon*) icon;
 @end

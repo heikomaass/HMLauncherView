@@ -21,7 +21,7 @@
 
 @required
 
-// size of icon plus padding.
+// Size of the icon. This includes the padding.
 - (CGSize) buttonDimensionsInLauncherView:(HMLauncherView *) launcherView;
 
 - (NSUInteger) numberOfRowsInLauncherView:(HMLauncherView *) launcherView;
@@ -29,14 +29,14 @@
 - (NSUInteger) numberOfColumnsInLauncherView:(HMLauncherView*) launcherView;
 
 // The total number of pages to be shown in the launcher view.
-- (NSUInteger)numberOfPagesInLauncherView:(HMLauncherView *) launcherView;
+- (NSUInteger) numberOfPagesInLauncherView:(HMLauncherView *) launcherView;
 
 // Counts all contained icons in the given launcher view
-- (NSUInteger)numberOfIconsInLauncherView:(HMLauncherView *)launcherView;
+- (NSUInteger) numberOfIconsInLauncherView:(HMLauncherView *)launcherView;
 
 // The total number of buttons in a given page.
-- (NSUInteger)launcherView:(HMLauncherView *)launcherView 
-       numberOfIconsInPage:(NSUInteger)page;
+- (NSUInteger) launcherView:(HMLauncherView *)launcherView 
+        numberOfIconsInPage:(NSUInteger)page;
 
 
 - (BOOL) launcherView:(HMLauncherView *) launcherView contains:(HMLauncherIcon*) icon;
@@ -66,7 +66,7 @@
 - (void) launcherView:(HMLauncherView*) launcherView
            removeIcon:(HMLauncherIcon*) icon;
 
-// adds a new page to the launcher view. The new created page is returned for further usage.
+// Adds a new page to the launcher view. The new created page is returned for further usage.
 - (NSMutableArray*) addPageToLauncherView:(HMLauncherView*) launcherView;
 
 

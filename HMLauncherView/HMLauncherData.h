@@ -16,6 +16,8 @@
 #import <Foundation/Foundation.h>
 #import "HMLauncherIcon.h"
 
+
+// HMLauncherData contains a list of pages. Each page is represented by a NSMutableArray.
 @interface HMLauncherData : NSObject
 
 @property (nonatomic, assign) NSInteger maxRows;
@@ -24,7 +26,7 @@
 @property (nonatomic, retain) NSMutableArray *launcherIconPages;
 
 
-- (void) addIcon:(HMLauncherIcon*) icon;
+- (void)  addIcon:(HMLauncherIcon*) icon;
 
 - (void)      addIcon:(HMLauncherIcon*) icon
             pageIndex:(NSUInteger) pageIndex
@@ -45,6 +47,7 @@
 - (NSMutableArray*) pageOfIcon:(HMLauncherIcon*) icon;
 
 - (NSUInteger) iconCount;
+
 - (NSUInteger) pageCount;
 
 @end

@@ -17,7 +17,7 @@
 @class HMLauncherView;
 @class HMLauncherItem;
 
-// Baseclass for an Icon. You've to extend from this class.
+// Base class for an Icon. You've to extend from this class.
 // See LauncherExampleIcon.h for an example.
 @interface HMLauncherIcon : UIControl {
 }
@@ -29,7 +29,9 @@
 @property (nonatomic, retain) NSIndexPath *originIndexPath;
 @property (nonatomic, retain) HMLauncherItem *launcherItem;
 
+// Should return YES, if the close button contains the given point. 
 - (BOOL) hitCloseButton:(CGPoint) point;
+
 - (id) initWithLauncherItem: (HMLauncherItem*) launcherItem;
 
 @end

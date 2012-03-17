@@ -15,6 +15,7 @@
 
 #import <Foundation/Foundation.h>
 
+// The item represents the "data" of an icon and can be serialized.
 @interface HMLauncherItem : NSObject
 @property (nonatomic, retain) NSString *identifier;
 @property (nonatomic, retain) NSString *iconPath;

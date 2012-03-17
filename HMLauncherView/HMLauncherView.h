@@ -24,10 +24,10 @@
 - (void) startEditing;
 - (void) stopEditing;
 
-// only adds the icon to the view, not to the datasource
+// Adds the icon to the view. Please note that the icon has to be added to the datasource before.
 - (void) addIcon:(HMLauncherIcon*) icon;
 
-// only removes the icon from the view, not from the datasource
+// Removes the icon from the view. Please note that the icon will not be removed from the datasource.
 - (void) removeIcon:(HMLauncherIcon*) icon;
 - (void) removeIconAnimated:(HMLauncherIcon*) icon completion:(void (^) (void)) block;
 - (void) layoutIconsAnimated;

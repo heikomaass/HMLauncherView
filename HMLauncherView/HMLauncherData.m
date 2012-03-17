@@ -92,8 +92,9 @@
     if ([page count] > maxIcons) {
         HMLauncherIcon *overflowIcon = [page objectAtIndex:maxIcons];
         NSUInteger targetPageIndexForOverflowIcon = pageIndex + 1;
-        // Sind wir auf der letzten Seite ?
+
         if (targetPageIndexForOverflowIcon == [self.launcherIconPages count]) {
+            // We are at the last page, so add a new page.
             [self addPage];
         }
         [self moveIcon:overflowIcon toPage:targetPageIndexForOverflowIcon toIndex:0];
