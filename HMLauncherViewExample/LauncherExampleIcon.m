@@ -72,7 +72,7 @@
 
 - (void) setIconImageFromIconPath:(NSString *)iconPath {
     NSBundle *bundle = [NSBundle bundleForClass:[self class]];
-    NSString *imagePath = [bundle pathForResource:self.launcherItem.iconPath ofType:nil];
+    NSString *imagePath = [bundle pathForResource:self.launcherItem.iconPath ofType:nil]; 
     UIImage *aIconImage = [UIImage imageWithContentsOfFile:imagePath];
     
     // I've used the static imageNamed function before, but imageNamed doesn't work in unittests.
@@ -87,8 +87,17 @@
 }
 
 - (UIImage*) mergeBackgroundImage:(UIImage*) bottomImage withTopImage:(UIImage*) image {
-    CGSize newSize = bottomImage.size;    
-    UIGraphicsBeginImageContext( newSize );
+    CGSize newSize = bottomImage.size;   
+    if ([[UIScreen mainScreen] respondsToSelector:@selector(scale)]) {
+		if ([[UIScreen mainScreen] scale] == 2.0) {
+			UIGraphicsBeginImageContextWithOptions(newSize, NO, 2.0);
+		} else {
+			UIGraphicsBeginImageContext(newSize);
+		}
+	} else {
+		UIGraphicsBeginImageContext(newSize);
+	}
+
     
     [bottomImage drawInRect:CGRectMake(0,0,newSize.width,newSize.height)];
     int x = (int)((bottomImage.size.width - image.size.width) / 2);
