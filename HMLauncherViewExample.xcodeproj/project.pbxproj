@@ -10,6 +10,7 @@
 		8339FD9414FE582E003BB71C /* LauncherExampleIcon.m in Sources */ = {isa = PBXBuildFile; fileRef = 8339FD9314FE582E003BB71C /* LauncherExampleIcon.m */; };
 		8339FD9614FE649E003BB71C /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = 8339FD9514FE649E003BB71C /* close.png */; };
 		8339FDA714FE7045003BB71C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8339FDA614FE7045003BB71C /* Localizable.strings */; };
+		8343A2E7151D093B00460638 /* libHMLauncherView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8343A2E4151D090600460638 /* libHMLauncherView.a */; };
 		83C0003B1515380D00047174 /* 1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 83C0001E1515380100047174 /* 1@2x.png */; };
 		83C0003C1515380D00047174 /* 2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 83C0001F1515380200047174 /* 2@2x.png */; };
 		83C0003D1515380D00047174 /* 3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 83C000201515380200047174 /* 3@2x.png */; };
@@ -77,31 +78,23 @@
 		83DE167E14FD9302005E1F97 /* LauncherParentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 83DE165914FD9302005E1F97 /* LauncherParentView.m */; };
 		83DE167F14FD9302005E1F97 /* LauncherService.m in Sources */ = {isa = PBXBuildFile; fileRef = 83DE165B14FD9302005E1F97 /* LauncherService.m */; };
 		83DE168014FD9302005E1F97 /* LauncherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83DE165D14FD9302005E1F97 /* LauncherViewController.m */; };
-		83DEB0A614FD94E400833483 /* libHMLauncherView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 83DE162814FD9261005E1F97 /* libHMLauncherView.a */; };
 		83F121CB1515E9590071A0C5 /* close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 83F121CA1515E9580071A0C5 /* close@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		83DE162714FD9261005E1F97 /* PBXContainerItemProxy */ = {
+		8343A2E3151D090600460638 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 83DE162214FD9261005E1F97 /* HMLauncherView.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 83DE15A814FD8FF2005E1F97;
 			remoteInfo = HMLauncherView;
 		};
-		83DE162914FD9261005E1F97 /* PBXContainerItemProxy */ = {
+		8343A2E5151D090600460638 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 83DE162214FD9261005E1F97 /* HMLauncherView.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 83DE15B814FD8FF3005E1F97;
 			remoteInfo = HMLauncherViewTests;
-		};
-		83DE169014FD93B3005E1F97 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 83DE162214FD9261005E1F97 /* HMLauncherView.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 83DE15A714FD8FF2005E1F97;
-			remoteInfo = HMLauncherView;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -147,7 +140,7 @@
 		83DE160F14FD9236005E1F97 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		83DE161114FD9236005E1F97 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		83DE161314FD9236005E1F97 /* HMLauncherViewExample-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HMLauncherViewExample-Prefix.pch"; sourceTree = "<group>"; };
-		83DE162214FD9261005E1F97 /* HMLauncherView.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = HMLauncherView.xcodeproj; path = ../HMLauncherView/HMLauncherView.xcodeproj; sourceTree = "<group>"; };
+		83DE162214FD9261005E1F97 /* HMLauncherView.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = HMLauncherView.xcodeproj; sourceTree = SOURCE_ROOT; };
 		83DE163614FD92F4005E1F97 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		83DE163714FD9302005E1F97 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		83DE163914FD9302005E1F97 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
@@ -193,7 +186,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				83DEB0A614FD94E400833483 /* libHMLauncherView.a in Frameworks */,
+				8343A2E7151D093B00460638 /* libHMLauncherView.a in Frameworks */,
 				83DE160614FD9236005E1F97 /* UIKit.framework in Frameworks */,
 				83DE160814FD9236005E1F97 /* Foundation.framework in Frameworks */,
 				83DE160A14FD9236005E1F97 /* CoreGraphics.framework in Frameworks */,
@@ -203,6 +196,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8343A2DF151D090600460638 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8343A2E4151D090600460638 /* libHMLauncherView.a */,
+				8343A2E6151D090600460638 /* HMLauncherViewTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		83DE15F614FD9236005E1F97 = {
 			isa = PBXGroup;
 			children = (
@@ -260,15 +262,6 @@
 				8339FDA614FE7045003BB71C /* Localizable.strings */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		83DE162314FD9261005E1F97 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				83DE162814FD9261005E1F97 /* libHMLauncherView.a */,
-				83DE162A14FD9261005E1F97 /* HMLauncherViewTests.octest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		83DE163814FD9302005E1F97 /* images */ = {
@@ -352,7 +345,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				83DE169114FD93B3005E1F97 /* PBXTargetDependency */,
 			);
 			name = HMLauncherViewExample;
 			productName = HMLauncherViewExample;
@@ -380,7 +372,7 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 83DE162314FD9261005E1F97 /* Products */;
+					ProductGroup = 8343A2DF151D090600460638 /* Products */;
 					ProjectRef = 83DE162214FD9261005E1F97 /* HMLauncherView.xcodeproj */;
 				},
 			);
@@ -392,18 +384,18 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		83DE162814FD9261005E1F97 /* libHMLauncherView.a */ = {
+		8343A2E4151D090600460638 /* libHMLauncherView.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libHMLauncherView.a;
-			remoteRef = 83DE162714FD9261005E1F97 /* PBXContainerItemProxy */;
+			remoteRef = 8343A2E3151D090600460638 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		83DE162A14FD9261005E1F97 /* HMLauncherViewTests.octest */ = {
+		8343A2E6151D090600460638 /* HMLauncherViewTests.octest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = HMLauncherViewTests.octest;
-			remoteRef = 83DE162914FD9261005E1F97 /* PBXContainerItemProxy */;
+			remoteRef = 8343A2E5151D090600460638 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -495,14 +487,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		83DE169114FD93B3005E1F97 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = HMLauncherView;
-			targetProxy = 83DE169014FD93B3005E1F97 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		83DE160E14FD9236005E1F97 /* InfoPlist.strings */ = {
