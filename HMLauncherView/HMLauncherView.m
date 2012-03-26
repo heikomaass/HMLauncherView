@@ -341,7 +341,7 @@ static const CGFloat kLongPressDuration = 0.3;
 }
 
 - (void) longPressBegan:(HMLauncherIcon*) icon sender:(UILongPressGestureRecognizer*) longPress {
-    NSLog(@"%@: longPressBegan", persistKey);
+    NSLog(@"longPressBegan: %@", persistKey);
     if (!self.editing) {
         [self startEditing];
         [self.delegate launcherViewDidStartEditing:self];
@@ -372,24 +372,24 @@ static const CGFloat kLongPressDuration = 0.3;
 - (void) longPressEnded:(HMLauncherIcon*) icon sender:(UILongPressGestureRecognizer*) longPress {
     NSLog(@"longPressEnded: %@", self);
     
-    HMLauncherView *launcherView = [self.delegate targetLauncherViewForIcon:icon];
-    NSLog(@"launcherView responsible: %@", launcherView);
-    if (launcherView == nil) {
-        launcherView = self;
+    HMLauncherView *targetLauncherView = [self.delegate targetLauncherViewForIcon:icon];
+    NSLog(@"launcherView responsible: %@", targetLauncherView);
+    if (targetLauncherView == nil) {
+        targetLauncherView = self;
         self.targetPath = nil;
     }
     
     BOOL shouldStopEditing = NO;
-    if (launcherView != nil) {
-        NSAssert(launcherView.dragIcon == self.dragIcon, @"launcherView.dragIcon != self.dragIcon");
+    if (targetLauncherView != nil) {
+        NSAssert(targetLauncherView.dragIcon == self.dragIcon, @"launcherView.dragIcon != self.dragIcon");
         
-        [launcherView stopScrollTimer];
-        if (launcherView.targetPath != nil) {
+        [targetLauncherView stopScrollTimer];
+        if (targetLauncherView.targetPath != nil) {
             shouldStopEditing = YES;
-            NSInteger pageIndex = [launcherView.targetPath pageIndex];
-            NSInteger iconIndex = [launcherView.targetPath iconIndex];
-            launcherView.targetPath = nil;
-            if (launcherView == self) {
+            NSInteger pageIndex = [targetLauncherView.targetPath pageIndex];
+            NSInteger iconIndex = [targetLauncherView.targetPath iconIndex];
+            targetLauncherView.targetPath = nil;
+            if (targetLauncherView == self) {
                 [self.dataSource launcherView:self moveIcon:self.dragIcon
                                        toPage:pageIndex
                                       toIndex:iconIndex];
@@ -398,31 +398,31 @@ static const CGFloat kLongPressDuration = 0.3;
                 NSLog(@"removing icon: %@ from launcherView: %@", self.dragIcon, self);
                 [self.dataSource launcherView:self removeIcon:self.dragIcon];
                 [self.delegate launcherView:self didDeleteIcon:self.dragIcon];
-                NSLog(@"adding icon: %@ to launcherView: %@", self.dragIcon, launcherView);
-                [launcherView.delegate launcherView:launcherView willAddIcon:self.dragIcon];            
-                [launcherView.dataSource launcherView:launcherView addIcon:self.dragIcon
+                NSLog(@"adding icon: %@ to launcherView: %@", self.dragIcon, targetLauncherView);
+                [targetLauncherView.delegate launcherView:targetLauncherView willAddIcon:self.dragIcon];            
+                [targetLauncherView.dataSource launcherView:targetLauncherView addIcon:self.dragIcon
                                             pageIndex:pageIndex
                                             iconIndex:iconIndex];                
             }
         }
     }
     
-    [launcherView makeIconNonDraggable:launcherView.dragIcon 
+    [targetLauncherView makeIconNonDraggable:targetLauncherView.dragIcon 
                     sourceLauncherView:self
-                    targetLauncherView:launcherView
+                    targetLauncherView:targetLauncherView
                             completion:^{
                                 // Restart wobbling, so that the ex-dragging icon
                                 // will wobble as well.
-                                [launcherView stopShaking];
-                                [launcherView startShaking];
+                                [targetLauncherView stopShaking];
+                                [targetLauncherView startShaking];
                                 if (shouldStopEditing) {
-                                    [launcherView stopEditing];
-                                    [launcherView.delegate launcherViewDidStopEditing:self];
+                                    [targetLauncherView stopEditing];
+                                    [targetLauncherView.delegate launcherViewDidStopEditing:self];
                                 }
                                 [icon setOriginIndexPath:nil];
                             }];
     
-    if (launcherView != self) {
+    if (targetLauncherView != self) {
         self.dragIcon = nil;
         self.targetPath = nil;
         [self stopScrollTimer];

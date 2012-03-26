@@ -54,7 +54,7 @@
     [launcherViewLeft setDelegate:self];
     [launcherViewLeft reloadData];
     
-
+    
     HMLauncherData *launcherDataRight = launcherService.launcherDataRight;
     HMLauncherView *launcherViewRight = self.launcherParentView.launcherViewRight;
     NSParameterAssert(launcherViewRight != nil);
@@ -87,12 +87,12 @@
 }
 
 - (void) launcherView:(HMLauncherView*) launcherView willAddIcon:(HMLauncherIcon*) addedIcon {
-
+    
 }
 
 
 - (void) launcherView:(HMLauncherView*) launcherView didDeleteIcon:(HMLauncherIcon*) deletedIcon {
-
+    
 }
 
 - (void) launcherViewDidAppear:(HMLauncherView *)launcherView {
@@ -100,7 +100,7 @@
 }
 
 - (void) launcherViewDidDisappear:(HMLauncherView *)launcherView {
-
+    
 }
 
 - (void) launcherViewDidStartEditing:(HMLauncherView*) launcherView {
@@ -124,17 +124,26 @@
 }
 
 - (HMLauncherView*) targetLauncherViewForIcon:(HMLauncherIcon *) icon {
-    CGRect leftLauncherViewRectInKeyView = [icon.superview convertRect:self.launcherParentView.launcherViewLeft.frame
-                                                             fromView:self.launcherParentView.launcherViewLeft.superview];
     
-    if (CGRectContainsPoint(leftLauncherViewRectInKeyView, icon.center)) {
-        return self.launcherParentView.launcherViewLeft;
-    }
+    CGRect leftLauncherViewRectInKeyView = [icon.superview convertRect:self.launcherParentView.launcherViewLeft.frame
+                                                              fromView:self.launcherParentView.launcherViewLeft.superview];
     
     CGRect rightLauncherViewRectInKeyView = [icon.superview convertRect:self.launcherParentView.launcherViewRight.frame
-                                                          fromView:self.launcherParentView.launcherViewRight.superview];
-    if (CGRectContainsPoint(rightLauncherViewRectInKeyView, icon.center)) {
-        return self.launcherParentView.launcherViewRight; 
+                                                               fromView:self.launcherParentView.launcherViewRight.superview];
+    BOOL inLeftLauncherView = (CGRectContainsPoint(leftLauncherViewRectInKeyView, icon.center));
+    BOOL inRightLauncherView = (CGRectContainsPoint(rightLauncherViewRectInKeyView, icon.center));
+    
+    if (inLeftLauncherView && inRightLauncherView) {
+        // both launcherviews are overlapping. this is not intended. 
+        // in order to prevent a crash, the current draggingView will be returned.
+    } else {
+        if (inLeftLauncherView) {
+            return self.launcherParentView.launcherViewLeft;
+        }
+        
+        if (inRightLauncherView) {
+            return self.launcherParentView.launcherViewRight; 
+        }
     }
     return self.currentDraggingView;
 }
