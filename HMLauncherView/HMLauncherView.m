@@ -285,7 +285,7 @@ static const CGFloat kLongPressDuration = 0.3;
     // LongPress gesture
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self 
                                                                                             action:@selector(didLongPressIcon:withEvent:)];
-    [longPress setMinimumPressDuration:0.4];
+    [longPress setMinimumPressDuration:duration];
     if (recognizerToFail != nil) {
         [longPress requireGestureRecognizerToFail:recognizerToFail];
     }
