@@ -10,7 +10,6 @@
 		83DE15AC14FD8FF2005E1F97 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83DE15AB14FD8FF2005E1F97 /* Foundation.framework */; };
 		83DE15B214FD8FF2005E1F97 /* HMLauncherView.m in Sources */ = {isa = PBXBuildFile; fileRef = 83DE15B114FD8FF2005E1F97 /* HMLauncherView.m */; };
 		83DE15BA14FD8FF3005E1F97 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83DE15B914FD8FF3005E1F97 /* SenTestingKit.framework */; };
-		83DE15BC14FD8FF3005E1F97 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83DE15BB14FD8FF3005E1F97 /* UIKit.framework */; };
 		83DE15BD14FD8FF3005E1F97 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83DE15AB14FD8FF2005E1F97 /* Foundation.framework */; };
 		83DE15C014FD8FF3005E1F97 /* libHMLauncherView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 83DE15A814FD8FF2005E1F97 /* libHMLauncherView.a */; };
 		83DE15C614FD8FF3005E1F97 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 83DE15C414FD8FF3005E1F97 /* InfoPlist.strings */; };
@@ -22,8 +21,6 @@
 		83DE15E214FD907F005E1F97 /* HMLauncherItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 83DE15DA14FD907F005E1F97 /* HMLauncherItem.h */; };
 		83DE15E314FD907F005E1F97 /* HMLauncherItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 83DE15DB14FD907F005E1F97 /* HMLauncherItem.m */; };
 		83DE15E414FD907F005E1F97 /* HMLauncherViewDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 83DE15DC14FD907F005E1F97 /* HMLauncherViewDelegate.h */; };
-		83DE15E814FD909C005E1F97 /* HMLauncherDataTest.h in Headers */ = {isa = PBXBuildFile; fileRef = 83DE15E614FD909C005E1F97 /* HMLauncherDataTest.h */; };
-		83DE15E914FD909C005E1F97 /* HMLauncherDataTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 83DE15E714FD909C005E1F97 /* HMLauncherDataTest.m */; };
 		83DE15EE14FD911F005E1F97 /* HMLauncherDataTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 83DE15E714FD909C005E1F97 /* HMLauncherDataTest.m */; };
 		83DE15F114FD9162005E1F97 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83DE15F014FD9162005E1F97 /* CoreGraphics.framework */; };
 		83DE15F314FD916C005E1F97 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83DE15F214FD916C005E1F97 /* UIKit.framework */; };
@@ -49,7 +46,6 @@
 		83DE15B114FD8FF2005E1F97 /* HMLauncherView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HMLauncherView.m; sourceTree = "<group>"; };
 		83DE15B814FD8FF3005E1F97 /* HMLauncherViewTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HMLauncherViewTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		83DE15B914FD8FF3005E1F97 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		83DE15BB14FD8FF3005E1F97 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		83DE15C314FD8FF3005E1F97 /* HMLauncherViewTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HMLauncherViewTests-Info.plist"; sourceTree = "<group>"; };
 		83DE15C514FD8FF3005E1F97 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		83DE15D514FD907F005E1F97 /* HMLauncherData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMLauncherData.h; sourceTree = "<group>"; };
@@ -84,7 +80,6 @@
 			files = (
 				83DE15F414FD9181005E1F97 /* CoreGraphics.framework in Frameworks */,
 				83DE15BA14FD8FF3005E1F97 /* SenTestingKit.framework in Frameworks */,
-				83DE15BC14FD8FF3005E1F97 /* UIKit.framework in Frameworks */,
 				83DE15BD14FD8FF3005E1F97 /* Foundation.framework in Frameworks */,
 				83DE15C014FD8FF3005E1F97 /* libHMLauncherView.a in Frameworks */,
 			);
@@ -96,8 +91,6 @@
 		83DE159D14FD8FF2005E1F97 = {
 			isa = PBXGroup;
 			children = (
-				83DE15F214FD916C005E1F97 /* UIKit.framework */,
-				83DE15F014FD9162005E1F97 /* CoreGraphics.framework */,
 				83DE15AD14FD8FF2005E1F97 /* HMLauncherView */,
 				83DE15C114FD8FF3005E1F97 /* HMLauncherViewTests */,
 				83DE15AA14FD8FF2005E1F97 /* Frameworks */,
@@ -117,9 +110,10 @@
 		83DE15AA14FD8FF2005E1F97 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				83DE15F214FD916C005E1F97 /* UIKit.framework */,
+				83DE15F014FD9162005E1F97 /* CoreGraphics.framework */,
 				83DE15AB14FD8FF2005E1F97 /* Foundation.framework */,
 				83DE15B914FD8FF3005E1F97 /* SenTestingKit.framework */,
-				83DE15BB14FD8FF3005E1F97 /* UIKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -182,7 +176,6 @@
 				83DE15E014FD907F005E1F97 /* HMLauncherIcon.h in Headers */,
 				83DE15E214FD907F005E1F97 /* HMLauncherItem.h in Headers */,
 				83DE15E414FD907F005E1F97 /* HMLauncherViewDelegate.h in Headers */,
-				83DE15E814FD909C005E1F97 /* HMLauncherDataTest.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,7 +282,6 @@
 				83DE15DE14FD907F005E1F97 /* HMLauncherData.m in Sources */,
 				83DE15E114FD907F005E1F97 /* HMLauncherIcon.m in Sources */,
 				83DE15E314FD907F005E1F97 /* HMLauncherItem.m in Sources */,
-				83DE15E914FD909C005E1F97 /* HMLauncherDataTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
