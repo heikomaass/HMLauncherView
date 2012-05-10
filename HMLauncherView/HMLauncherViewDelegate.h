@@ -19,6 +19,7 @@
 @class HMLauncherIcon;
 @protocol HMLauncherViewDelegate <NSObject>
 
+@optional
 - (void) launcherView:(HMLauncherView*) launcherView didStartDragging:(HMLauncherIcon*) icon;
 
 - (void) launcherView:(HMLauncherView*) launcherView didStopDragging:(HMLauncherIcon*) icon;
