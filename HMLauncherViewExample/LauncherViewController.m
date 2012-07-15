@@ -84,6 +84,10 @@
 
 - (void) launcherView:(HMLauncherView *)launcherView didStopDragging:(HMLauncherIcon *)icon {
     self.currentDraggingView = nil;
+    
+    // If you to stop the edit mode without moving or deleting the icon, uncomment the following lines:
+    // [self.launcherParentView.launcherViewLeft stopEditing];
+    // [self.launcherParentView.launcherViewRight stopEditing];
 }
 
 - (void) launcherView:(HMLauncherView*) launcherView willAddIcon:(HMLauncherIcon*) addedIcon {

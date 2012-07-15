@@ -566,8 +566,9 @@ static const CGFloat kLongPressDuration = 0.3;
         [self layoutIcons];
         
         block();
+        [self.delegate launcherView:self didStopDragging:icon];
     }];
-    [self.delegate launcherView:self didStopDragging:icon];
+
 }
 
 - (NSIndexPath*) iconIndexForPoint:(CGPoint) center {
