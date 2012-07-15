@@ -19,9 +19,14 @@
 #import "HMLauncherData.h"
 #import "HMLauncherView.h"
 
+@interface LauncherViewController() 
+    @property(nonatomic, assign) BOOL dragIconHasMoved;
+@end
+
 @implementation LauncherViewController
 @synthesize launcherService;
 @synthesize currentDraggingView;
+@synthesize dragIconHasMoved;
 
 - (void)didReceiveMemoryWarning {
     // Releases the view if it doesn't have a superview.
@@ -84,16 +89,15 @@
 
 - (void) launcherView:(HMLauncherView *)launcherView didStopDragging:(HMLauncherIcon *)icon {
     self.currentDraggingView = nil;
-    
-    // If you to stop the edit mode without moving or deleting the icon, uncomment the following lines:
-    // [self.launcherParentView.launcherViewLeft stopEditing];
-    // [self.launcherParentView.launcherViewRight stopEditing];
+}
+
+- (void) launcherView:(HMLauncherView*) launcherView willMoveIcon:(HMLauncherIcon *)icon fromIndex:(NSIndexPath *)fromIndex toIndex:(NSIndexPath *)toIndex {
+    self.dragIconHasMoved = YES;
 }
 
 - (void) launcherView:(HMLauncherView*) launcherView willAddIcon:(HMLauncherIcon*) addedIcon {
     
 }
-
 
 - (void) launcherView:(HMLauncherView*) launcherView didDeleteIcon:(HMLauncherIcon*) deletedIcon {
     
@@ -107,6 +111,10 @@
     
 }
 
+- (BOOL) launcherViewShouldStopEditingAfterDraggingEnds:(HMLauncherView *)launcherView {
+    return self.dragIconHasMoved;
+}
+
 - (void) launcherViewDidStartEditing:(HMLauncherView*) launcherView {
     if (!self.launcherParentView.launcherViewLeft.editing) {
         [self.launcherParentView.launcherViewLeft startEditing];          
@@ -118,6 +126,7 @@
 }
 
 - (void) launcherViewDidStopEditing:(HMLauncherView*) launcherView {
+    self.dragIconHasMoved = NO;
     if (self.launcherParentView.launcherViewLeft.editing) {
         [self.launcherParentView.launcherViewLeft stopEditing];          
     }

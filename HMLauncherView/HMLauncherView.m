@@ -34,7 +34,7 @@ static const CGFloat kLongPressDuration = 0.3;
 @end
 
 @interface HMLauncherView() {
-    BOOL editing;    
+    BOOL editing;
 }
 - (void) enumeratePagesUsingBlock:(void (^) (NSUInteger page)) block;
 - (void) enumerateIconsOfPage:(NSUInteger) page 
@@ -88,6 +88,7 @@ static const CGFloat kLongPressDuration = 0.3;
 @property (nonatomic, assign) NSTimer *scrollTimer;
 @property (nonatomic, assign) HMLauncherIcon *dragIcon;
 @property (nonatomic, assign) HMLauncherIcon *closingIcon;
+
 @end
 
 @implementation HMLauncherView
@@ -319,7 +320,9 @@ static const CGFloat kLongPressDuration = 0.3;
         [alertView show];
         [alertView release];
     } else {
-        [self.delegate launcherView:self didTapLauncherIcon:launcherIcon];
+        if ([self.delegate respondsToSelector:@selector(launcherView:didTapLauncherIcon:)]) {
+            [self.delegate launcherView:self didTapLauncherIcon:launcherIcon];            
+        }
     }
 }
 
@@ -344,7 +347,9 @@ static const CGFloat kLongPressDuration = 0.3;
     NSLog(@"longPressBegan: %@", persistKey);
     if (!self.editing) {
         [self startEditing];
-        [self.delegate launcherViewDidStartEditing:self];
+        if ([self.delegate respondsToSelector:@selector(launcherViewDidStartEditing:)]) {
+            [self.delegate launcherViewDidStartEditing:self];
+        }
     }
     NSIndexPath *originIndexPath = [self iconIndexForPoint:icon.center];
     [icon setOriginIndexPath:originIndexPath];
@@ -353,16 +358,26 @@ static const CGFloat kLongPressDuration = 0.3;
 
 - (void) longPressMoved:(HMLauncherIcon*) icon toPoint:(CGPoint) newCenter sender:(UILongPressGestureRecognizer*) longPress {
     NSAssert(icon.originIndexPath != nil, @"originIndexPath must be set");
+    HMLauncherView *launcherView = [self.delegate targetLauncherViewForIcon:icon];
     
     CGPoint newCenterOnKeyView = [icon.superview convertPoint:newCenter 
                                                      fromView:self];
-    [icon setCenter:newCenterOnKeyView];
-    
-    HMLauncherView *launcherView = [self.delegate targetLauncherViewForIcon:icon];
-    CGPoint iconPositionInTarget = [launcherView.scrollView convertPoint:icon.center 
+    CGPoint previousIconPositionInTarget = [launcherView.scrollView convertPoint:icon.center 
+                                                                        fromView:icon.superview];
+    NSIndexPath *previousIndexPath = [launcherView iconIndexForPoint:previousIconPositionInTarget];
+
+
+    [icon setCenter:newCenterOnKeyView];    
+    CGPoint currentIconPositionInTarget = [launcherView.scrollView convertPoint:icon.center 
                                                                 fromView:icon.superview];
     
-    NSIndexPath *indexPath = [launcherView iconIndexForPoint:iconPositionInTarget];    
+    NSIndexPath *indexPath = [launcherView iconIndexForPoint:currentIconPositionInTarget];   
+    
+    if (![previousIndexPath isEqual:indexPath]) {
+        if ([self.delegate respondsToSelector:@selector(launcherView:willMoveIcon:fromIndex:toIndex:)]) {
+            [self.delegate launcherView:self willMoveIcon:icon fromIndex:previousIndexPath toIndex:indexPath];
+        }
+    }
     [launcherView setTargetPath:indexPath];
     [launcherView setDragIcon:icon];
     [launcherView checkIfScrollingIsNeeded:icon];
@@ -378,14 +393,12 @@ static const CGFloat kLongPressDuration = 0.3;
         targetLauncherView = self;
         self.targetPath = nil;
     }
-    
-    BOOL shouldStopEditing = NO;
+
     if (targetLauncherView != nil) {
         NSAssert(targetLauncherView.dragIcon == self.dragIcon, @"launcherView.dragIcon != self.dragIcon");
         
         [targetLauncherView stopScrollTimer];
         if (targetLauncherView.targetPath != nil) {
-            shouldStopEditing = YES;
             NSInteger pageIndex = [targetLauncherView.targetPath pageIndex];
             NSInteger iconIndex = [targetLauncherView.targetPath iconIndex];
             targetLauncherView.targetPath = nil;
@@ -397,9 +410,14 @@ static const CGFloat kLongPressDuration = 0.3;
             } else {
                 NSLog(@"removing icon: %@ from launcherView: %@", self.dragIcon, self);
                 [self.dataSource launcherView:self removeIcon:self.dragIcon];
-                [self.delegate launcherView:self didDeleteIcon:self.dragIcon];
+                if ([self.delegate respondsToSelector:@selector(launcherView:didDeleteIcon:)]) {
+                    [self.delegate launcherView:self didDeleteIcon:self.dragIcon];                    
+                }
+
                 NSLog(@"adding icon: %@ to launcherView: %@", self.dragIcon, targetLauncherView);
-                [targetLauncherView.delegate launcherView:targetLauncherView willAddIcon:self.dragIcon];            
+                if ([self.delegate respondsToSelector:@selector(launcherView:willAddIcon:)]) {
+                    [targetLauncherView.delegate launcherView:targetLauncherView willAddIcon:self.dragIcon];                                
+                }
                 [targetLauncherView.dataSource launcherView:targetLauncherView addIcon:self.dragIcon
                                             pageIndex:pageIndex
                                             iconIndex:iconIndex];                
@@ -415,9 +433,11 @@ static const CGFloat kLongPressDuration = 0.3;
                                 // will wobble as well.
                                 [targetLauncherView stopShaking];
                                 [targetLauncherView startShaking];
-                                if (shouldStopEditing) {
+                                if ([targetLauncherView.delegate launcherViewShouldStopEditingAfterDraggingEnds:targetLauncherView]) {
                                     [targetLauncherView stopEditing];
-                                    [targetLauncherView.delegate launcherViewDidStopEditing:self];
+                                    if ([targetLauncherView.delegate respondsToSelector:@selector(launcherViewDidStopEditing:)]) {
+                                        [targetLauncherView.delegate launcherViewDidStopEditing:targetLauncherView];
+                                    }
                                 }
                                 [icon setOriginIndexPath:nil];
                             }];
@@ -542,7 +562,9 @@ static const CGFloat kLongPressDuration = 0.3;
         icon.transform = CGAffineTransformMakeScale(1.5, 1.5);
         icon.alpha = 0.9;
     }];
-    [self.delegate launcherView:self didStartDragging:icon];
+    if ([self.delegate respondsToSelector:@selector(launcherView:didStartDragging:)]) {
+        [self.delegate launcherView:self didStartDragging:icon];
+    }
 }
 
 - (void) makeIconNonDraggable:(HMLauncherIcon*) icon 
@@ -566,7 +588,9 @@ static const CGFloat kLongPressDuration = 0.3;
         [self layoutIcons];
         
         block();
-        [self.delegate launcherView:self didStopDragging:icon];
+        if ([self.delegate respondsToSelector:@selector(launcherView:didStopDragging:)]) {
+            [self.delegate launcherView:self didStopDragging:icon];
+        }
     }];
 
 }
@@ -715,7 +739,9 @@ static const CGFloat kLongPressDuration = 0.3;
                       completion:^{
                           self.closingIcon = nil;                          
                           [self stopEditing];
-                          [self.delegate launcherViewDidStopEditing:self];
+                          if ([self.delegate respondsToSelector:@selector(launcherViewDidStopEditing:)]) {
+                              [self.delegate launcherViewDidStopEditing:self];
+                          }
                       }];
     };
 }

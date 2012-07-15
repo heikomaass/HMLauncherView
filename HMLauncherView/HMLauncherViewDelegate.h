@@ -19,6 +19,13 @@
 @class HMLauncherIcon;
 @protocol HMLauncherViewDelegate <NSObject>
 
+@required
+// Returns the HMLauncherView, which will embed the icon, when the dragging ends.
+- (HMLauncherView*) targetLauncherViewForIcon:(HMLauncherIcon*) icon;
+
+
+- (BOOL) launcherViewShouldStopEditingAfterDraggingEnds:(HMLauncherView *)launcherView;
+
 @optional
 - (void) launcherView:(HMLauncherView*) launcherView didStartDragging:(HMLauncherIcon*) icon;
 
@@ -30,6 +37,11 @@
 
 - (void) launcherView:(HMLauncherView*) launcherView didDeleteIcon:(HMLauncherIcon*) icon;
 
+- (void) launcherView:(HMLauncherView*) launcherView willMoveIcon:(HMLauncherIcon*) icon 
+            fromIndex:(NSIndexPath*) fromIndex 
+              toIndex:(NSIndexPath*) toIndex;
+
+
 - (void) launcherViewDidAppear:(HMLauncherView *)launcherView;
 
 - (void) launcherViewDidDisappear:(HMLauncherView *)launcherView;
@@ -39,6 +51,4 @@
 - (void) launcherViewDidStopEditing:(HMLauncherView*) launcherView;
 
 
-// Returns the HMLauncherView, which will embed the icon, when the dragging ends.
-- (HMLauncherView*) targetLauncherViewForIcon:(HMLauncherIcon*) icon;
 @end

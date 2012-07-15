@@ -39,4 +39,5 @@
 @property (nonatomic, assign) NSObject<HMLauncherDataSource> *dataSource;
 @property (nonatomic, assign) NSObject<HMLauncherViewDelegate> *delegate;
 @property (nonatomic, retain) NSString *persistKey;
+
 @end
