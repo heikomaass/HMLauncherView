@@ -47,13 +47,13 @@ static const CGFloat kLongPressDuration = 0.3;
 
 - (void) didLongPressIcon:(UILongPressGestureRecognizer*) sender withEvent:(UIEvent*) event;
 - (void) didTapIcon:(UITapGestureRecognizer*) sender;
-- (void) longPressBegan:(HMLauncherIcon*) icon 
-                 sender:(UILongPressGestureRecognizer*) longPress;
+- (void) longPressBegan:(HMLauncherIcon*) icon;
 - (void) longPressMoved:(HMLauncherIcon*) icon 
-                toPoint:(CGPoint) newPosition 
-                 sender:(UILongPressGestureRecognizer*) longPress;
-- (void) longPressEnded:(HMLauncherIcon*) icon 
-                 sender:(UILongPressGestureRecognizer*) longPress;
+                toPoint:(CGPoint) newPosition;
+- (void) longPressEnded:(HMLauncherIcon*) icon;
+- (void)    performMove:(HMLauncherIcon *)icon
+                toPoint:(CGPoint)newCenter
+           launcherView:(HMLauncherView *)launcherView;
 - (void) removeAllGestureRecognizers:(HMLauncherIcon*) icon;
 - (UILongPressGestureRecognizer*) launcherIcon:(HMLauncherIcon*) icon 
      addLongPressGestureRecognizerWithDuration:(CGFloat) duration 
@@ -290,7 +290,6 @@ static const CGFloat kLongPressDuration = 0.3;
     if (recognizerToFail != nil) {
         [longPress requireGestureRecognizerToFail:recognizerToFail];
     }
-    
     [icon addGestureRecognizer:longPress];
     return [longPress autorelease];
 }
@@ -332,18 +331,18 @@ static const CGFloat kLongPressDuration = 0.3;
     }
     HMLauncherIcon *icon = (HMLauncherIcon*) sender.view;   
     if (sender.state == UIGestureRecognizerStateBegan) {
-        [self longPressBegan:icon sender:sender];
+        [self longPressBegan:icon];
     } else if (sender.state == UIGestureRecognizerStateChanged) {
         CGPoint iconPoint = [sender locationInView:self];
-        [self longPressMoved:icon toPoint:iconPoint sender:sender];
+        [self longPressMoved:icon toPoint:iconPoint];
     } else if (sender.state == UIGestureRecognizerStateEnded) {
-        [self longPressEnded:icon sender:sender];
+        [self longPressEnded:icon ];
     } else if (sender.state == UIGestureRecognizerStateCancelled) {
-        [self longPressEnded:icon sender:sender];
+        [self longPressEnded:icon];
     }
 }
 
-- (void) longPressBegan:(HMLauncherIcon*) icon sender:(UILongPressGestureRecognizer*) longPress {
+- (void) longPressBegan:(HMLauncherIcon*) icon {
     NSLog(@"longPressBegan: %@", persistKey);
     if (!self.editing) {
         [self startEditing];
@@ -356,20 +355,18 @@ static const CGFloat kLongPressDuration = 0.3;
     [self makeIconDraggable:icon];
 }
 
-- (void) longPressMoved:(HMLauncherIcon*) icon toPoint:(CGPoint) newCenter sender:(UILongPressGestureRecognizer*) longPress {
-    NSAssert(icon.originIndexPath != nil, @"originIndexPath must be set");
-    HMLauncherView *launcherView = [self.delegate targetLauncherViewForIcon:icon];
-    
+- (void) performMove:(HMLauncherIcon *)icon toPoint:(CGPoint)newCenter launcherView:(HMLauncherView *)launcherView {
+    NSLog(@"performMove: toPoint:%@", NSStringFromCGPoint(newCenter));
     CGPoint newCenterOnKeyView = [icon.superview convertPoint:newCenter 
                                                      fromView:self];
     CGPoint previousIconPositionInTarget = [launcherView.scrollView convertPoint:icon.center 
                                                                         fromView:icon.superview];
     NSIndexPath *previousIndexPath = [launcherView iconIndexForPoint:previousIconPositionInTarget];
-
-
+    
+    
     [icon setCenter:newCenterOnKeyView];    
     CGPoint currentIconPositionInTarget = [launcherView.scrollView convertPoint:icon.center 
-                                                                fromView:icon.superview];
+                                                                       fromView:icon.superview];
     
     NSIndexPath *indexPath = [launcherView iconIndexForPoint:currentIconPositionInTarget];   
     
@@ -380,13 +377,18 @@ static const CGFloat kLongPressDuration = 0.3;
     }
     [launcherView setTargetPath:indexPath];
     [launcherView setDragIcon:icon];
+}
+
+- (void) longPressMoved:(HMLauncherIcon*) icon toPoint:(CGPoint) newCenter {
+    NSAssert(icon.originIndexPath != nil, @"originIndexPath must be set");
+    HMLauncherView *launcherView = [self.delegate targetLauncherViewForIcon:icon];
+    
+    [self performMove:icon toPoint:newCenter launcherView:launcherView];
     [launcherView checkIfScrollingIsNeeded:icon];
     [launcherView layoutIconsAnimated];
 }
 
-- (void) longPressEnded:(HMLauncherIcon*) icon sender:(UILongPressGestureRecognizer*) longPress {
-    NSLog(@"longPressEnded: %@", self);
-    
+- (void) longPressEnded:(HMLauncherIcon*) icon {
     HMLauncherView *targetLauncherView = [self.delegate targetLauncherViewForIcon:icon];
     NSLog(@"launcherView responsible: %@", targetLauncherView);
     if (targetLauncherView == nil) {
@@ -483,10 +485,13 @@ static const CGFloat kLongPressDuration = 0.3;
 
 - (void) checkIfScrollingIsNeeded:(HMLauncherIcon*) launcherIcon {
     NSInteger springOffset = [self calculateSpringOffset:launcherIcon];
-    [self startScrollTimerWithOffset:springOffset];
+    if (springOffset != 0) {
+        [self startScrollTimerWithOffset:springOffset];
+    }
 }
 
 - (void) startScrollTimerWithOffset:(NSInteger) offset {
+
     NSNumber *springOffsetNumber = [NSNumber numberWithInteger:offset];
     if (self.scrollTimer != nil) {
         // check if previous timer heads the right way
@@ -506,6 +511,7 @@ static const CGFloat kLongPressDuration = 0.3;
 }
 
 - (void) executeScroll:(NSTimer*) timer {
+    NSLog(@"executeScroll");
     self.scrollTimer = nil;    
     if ([self.delegate targetLauncherViewForIcon:self.dragIcon] != self) {
         return;
@@ -708,6 +714,7 @@ static const CGFloat kLongPressDuration = 0.3;
 }
 
 - (void)updatePagerWithContentOffset:(CGPoint) contentOffset {
+    NSLog(@"updatePagerWithContentOffset: %@", NSStringFromCGPoint(contentOffset));
     CGFloat pageWidth = self.scrollView.bounds.size.width;
     NSUInteger numberOfPages = [self.dataSource numberOfPagesInLauncherView:self];
     self.pageControl.numberOfPages = numberOfPages;
@@ -718,6 +725,9 @@ static const CGFloat kLongPressDuration = 0.3;
 - (void)scrollViewDidEndScrollingAnimation:(UIScrollView *) inScrollView{
     if (self.dragIcon != nil) {
         [self checkIfScrollingIsNeeded:self.dragIcon];
+        HMLauncherView *launcherView = [self.delegate targetLauncherViewForIcon:self.dragIcon];
+        CGPoint centerInLauncherView = [self.dragIcon.superview convertPoint:self.dragIcon.center toView:launcherView];
+        [self performMove:self.dragIcon toPoint:centerInLauncherView launcherView:launcherView];
     }
     [self updatePagerWithContentOffset:inScrollView.contentOffset];
 }

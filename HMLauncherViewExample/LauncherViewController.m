@@ -84,11 +84,14 @@
 }
 
 - (void) launcherView:(HMLauncherView *)launcherView didStartDragging:(HMLauncherIcon *)icon {
+    NSLog(@"didStartDragging");
     self.currentDraggingView = launcherView;
 }
 
 - (void) launcherView:(HMLauncherView *)launcherView didStopDragging:(HMLauncherIcon *)icon {
+    NSLog(@"didStopDragging");
     self.currentDraggingView = nil;
+    
 }
 
 - (void) launcherView:(HMLauncherView*) launcherView willMoveIcon:(HMLauncherIcon *)icon fromIndex:(NSIndexPath *)fromIndex toIndex:(NSIndexPath *)toIndex {
