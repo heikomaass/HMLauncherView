@@ -25,9 +25,6 @@
 @synthesize originIndexPath;
 @synthesize launcherItem;
 
-@interface HMLauncherIcon(private) 
-@end
-
 - (BOOL) hitCloseButton:(CGPoint)point {
     NSAssert(NO, @"this method must be overridden");
     return NO;
