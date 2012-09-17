@@ -356,7 +356,6 @@ static const CGFloat kLongPressDuration = 0.3;
 }
 
 - (void) performMove:(HMLauncherIcon *)icon toPoint:(CGPoint)newCenter launcherView:(HMLauncherView *)launcherView {
-    NSLog(@"performMove: toPoint:%@", NSStringFromCGPoint(newCenter));
     CGPoint newCenterOnKeyView = [icon.superview convertPoint:newCenter 
                                                      fromView:self];
     CGPoint previousIconPositionInTarget = [launcherView.scrollView convertPoint:icon.center 
@@ -490,8 +489,12 @@ static const CGFloat kLongPressDuration = 0.3;
     }
 }
 
-- (void) startScrollTimerWithOffset:(NSInteger) offset {
 
+- (void) startScrollTimerWithOffset:(NSInteger) offset {
+    if ([self.delegate targetLauncherViewForIcon:self.dragIcon] != self) {
+        NSLog(@"don't start scroll");
+        return;
+    }
     NSNumber *springOffsetNumber = [NSNumber numberWithInteger:offset];
     if (self.scrollTimer != nil) {
         // check if previous timer heads the right way
@@ -502,7 +505,7 @@ static const CGFloat kLongPressDuration = 0.3;
             [self startScrollTimerWithOffset:offset];
         }
     } else {
-        self.scrollTimer = [NSTimer scheduledTimerWithTimeInterval:kScrollTimerInterval target:self selector:@selector(executeScroll:) userInfo:springOffsetNumber repeats:NO];        
+        self.scrollTimer = [NSTimer scheduledTimerWithTimeInterval:kScrollTimerInterval target:self selector:@selector(executeScroll:) userInfo:nil repeats:NO];
     }
 }
 
@@ -511,14 +514,14 @@ static const CGFloat kLongPressDuration = 0.3;
 }
 
 - (void) executeScroll:(NSTimer*) timer {
-    NSLog(@"executeScroll");
-    self.scrollTimer = nil;    
+    self.scrollTimer = nil;
+    
     if ([self.delegate targetLauncherViewForIcon:self.dragIcon] != self) {
+        NSLog(@"don't perform scroll");
         return;
     }
     
-    NSNumber *offsetNumber = timer.userInfo;
-    NSInteger offset = [offsetNumber integerValue];
+    NSInteger offset = [self calculateSpringOffset:self.dragIcon];
     CGFloat newPageX = self.scrollView.contentOffset.x + offset * self.scrollView.bounds.size.width;
     NSInteger numberOfPages = [self.dataSource numberOfPagesInLauncherView:self];
     NSUInteger currentPageIndex = [self pageIndexForPoint:self.scrollView.contentOffset];
@@ -727,7 +730,7 @@ static const CGFloat kLongPressDuration = 0.3;
         [self checkIfScrollingIsNeeded:self.dragIcon];
         HMLauncherView *launcherView = [self.delegate targetLauncherViewForIcon:self.dragIcon];
         CGPoint centerInLauncherView = [self.dragIcon.superview convertPoint:self.dragIcon.center toView:launcherView];
-        [self performMove:self.dragIcon toPoint:centerInLauncherView launcherView:launcherView];
+        [launcherView performMove:self.dragIcon toPoint:centerInLauncherView launcherView:launcherView];
     }
     [self updatePagerWithContentOffset:inScrollView.contentOffset];
 }
