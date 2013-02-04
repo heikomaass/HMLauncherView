@@ -329,16 +329,25 @@ static const CGFloat kLongPressDuration = 0.3;
     if ([self.scrollView isDragging]) {
         return;
     }
-    HMLauncherIcon *icon = (HMLauncherIcon*) sender.view;   
+    HMLauncherIcon *icon = (HMLauncherIcon*) sender.view;
+    
     if (sender.state == UIGestureRecognizerStateBegan) {
-        [self longPressBegan:icon];
+        if (self.dragIcon == nil) {
+            [self longPressBegan:icon];
+        }
     } else if (sender.state == UIGestureRecognizerStateChanged) {
         CGPoint iconPoint = [sender locationInView:self];
-        [self longPressMoved:icon toPoint:iconPoint];
+        if (self.dragIcon == icon) {
+            [self longPressMoved:icon toPoint:iconPoint];
+        }
     } else if (sender.state == UIGestureRecognizerStateEnded) {
-        [self longPressEnded:icon ];
+        if (self.dragIcon == icon) {
+            [self longPressEnded:icon ];
+        }
     } else if (sender.state == UIGestureRecognizerStateCancelled) {
-        [self longPressEnded:icon];
+        if (self.dragIcon == icon) {
+            [self longPressEnded:icon];
+        }
     }
 }
 
