@@ -33,7 +33,7 @@
     if (lastPageIndex == -1) {
         targetPage = [self addPage];
     } else {
-        targetPage = [self.launcherIconPages objectAtIndex:lastPageIndex];
+        targetPage = (self.launcherIconPages)[lastPageIndex];
         NSUInteger numberOfIconsOnPage = [targetPage count];
         NSUInteger maxIcons = self.maxRows * self.maxColumns;
         if (numberOfIconsOnPage == maxIcons) {
@@ -75,7 +75,7 @@
     
     // Put icon into new position
     if (pageIndex < [self.launcherIconPages count]) { 
-        page = [self.launcherIconPages objectAtIndex:pageIndex];
+        page = (self.launcherIconPages)[pageIndex];
     } else {
         page = [NSMutableArray array];
         [self.launcherIconPages addObject:page];
@@ -90,7 +90,7 @@
     NSUInteger maxIcons = self.maxColumns * self.maxRows;
     
     if ([page count] > maxIcons) {
-        HMLauncherIcon *overflowIcon = [page objectAtIndex:maxIcons];
+        HMLauncherIcon *overflowIcon = page[maxIcons];
         NSUInteger targetPageIndexForOverflowIcon = pageIndex + 1;
 
         if (targetPageIndexForOverflowIcon == [self.launcherIconPages count]) {

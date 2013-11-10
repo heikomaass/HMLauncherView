@@ -501,7 +501,7 @@ static const CGFloat kLongPressDuration = 0.3;
         NSLog(@"don't start scroll");
         return;
     }
-    NSNumber *springOffsetNumber = [NSNumber numberWithInteger:offset];
+    NSNumber *springOffsetNumber = @(offset);
     if (self.scrollTimer != nil) {
         // check if previous timer heads the right way
         NSNumber *previousSetOffsetNumber = self.scrollTimer.userInfo;

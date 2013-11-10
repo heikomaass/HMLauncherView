@@ -83,7 +83,7 @@
     NSParameterAssert(launcherView != nil);
     NSParameterAssert(page < 5000);
     HMLauncherData *data = [self launcherDataFor:launcherView];
-    NSMutableArray *buttons = [data.launcherIconPages objectAtIndex:page];
+    NSMutableArray *buttons = (data.launcherIconPages)[page];
     return [buttons count];
 }
 
@@ -101,8 +101,8 @@
                       iconForPage: (NSUInteger)pageIndex
                           atIndex: (NSUInteger)iconIndex {
     HMLauncherData *data = [self launcherDataFor:launcherView];    
-    NSMutableArray *buttons = [data.launcherIconPages objectAtIndex:pageIndex];
-    return [buttons objectAtIndex:iconIndex];
+    NSMutableArray *buttons = (data.launcherIconPages)[pageIndex];
+    return buttons[iconIndex];
 }
 
 - (void) launcherView:(HMLauncherView *) launcherView
@@ -157,7 +157,7 @@
     // Add some dummy icons for launcherview on the left side.
     for (int i=1;i<15;i++) {
         NSString *imagePath = [NSString stringWithFormat:@"%d.png", i];
-        NSString *titleText = [loremArray objectAtIndex:i];
+        NSString *titleText = loremArray[i];
         HMLauncherIcon *icon = [self launcherIconForTitle:titleText
                                       imagePath:imagePath
                                       imageBackgroundPath:imageBackgroundLightPath];
@@ -174,7 +174,7 @@
     // Add some dummy icons for launcherview on the right side.
     char start = 'a';
     for (int i=1;i<14;i++) {
-        NSString *titleText = [loremArray objectAtIndex:i];
+        NSString *titleText = loremArray[i];
         NSString *imagePath = [NSString stringWithFormat:@"%c.png", start];
         HMLauncherIcon *icon = [self launcherIconForTitle:titleText
                                       imagePath:imagePath
