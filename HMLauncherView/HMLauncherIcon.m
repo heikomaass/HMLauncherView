@@ -55,10 +55,4 @@
     return self;
 }
 
--(void) dealloc {
-    [originIndexPath release], originIndexPath = nil;
-    [identifier release], identifier = nil;
-    [launcherItem release], launcherItem = nil;
-    [super dealloc];
-}
 @end

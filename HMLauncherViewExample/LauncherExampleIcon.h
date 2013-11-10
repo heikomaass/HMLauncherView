@@ -9,8 +9,8 @@
 #import "HMLauncherIcon.h"
 
 @interface LauncherExampleIcon : HMLauncherIcon
-@property (nonatomic, retain) UIImage *iconImage;
-@property (nonatomic, retain) UIImage *closeImage;
+@property (nonatomic, strong) UIImage *iconImage;
+@property (nonatomic, strong) UIImage *closeImage;
 @property (nonatomic, assign) CGRect closeRect;
 
 @end

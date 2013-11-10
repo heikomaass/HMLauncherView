@@ -25,9 +25,9 @@
 @property (nonatomic, assign) BOOL canBeDragged;
 @property (nonatomic, assign) BOOL canBeTapped;
 @property (nonatomic, assign) BOOL hideDeleteImage;
-@property (nonatomic, retain) NSString *identifier;
-@property (nonatomic, retain) NSIndexPath *originIndexPath;
-@property (nonatomic, retain) HMLauncherItem *launcherItem;
+@property (nonatomic, strong) NSString *identifier;
+@property (nonatomic, strong) NSIndexPath *originIndexPath;
+@property (nonatomic, strong) HMLauncherItem *launcherItem;
 
 // Should return YES, if the close button contains the given point. 
 - (BOOL) hitCloseButton:(CGPoint) point;

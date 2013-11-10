@@ -68,18 +68,13 @@
 - (id) initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
         [self setAutoresizingMask:UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight];
-        self.launcherViewLeft = [[[HMLauncherView alloc] initWithFrame:CGRectZero] autorelease];
-        self.launcherViewRight = [[[HMLauncherView alloc] initWithFrame:CGRectZero] autorelease];
+        self.launcherViewLeft = [[HMLauncherView alloc] initWithFrame:CGRectZero];
+        self.launcherViewRight = [[HMLauncherView alloc] initWithFrame:CGRectZero];
         [self addSubview:self.launcherViewLeft];
         [self addSubview:self.launcherViewRight];
     }
     return self;
 }
 
-- (void) dealloc {
-    [launcherViewLeft release], launcherViewLeft = nil;
-    [launcherViewRight release], launcherViewRight = nil;
-    [super dealloc];
-}
 
 @end

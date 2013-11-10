@@ -167,9 +167,5 @@
     return self;
 }
 
-- (void) dealloc {
-    [persistKey release], persistKey = nil;
-    [launcherIconPages release], launcherIconPages = nil;
-    [super dealloc];
-}
+
 @end

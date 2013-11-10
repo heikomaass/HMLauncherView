@@ -377,6 +377,7 @@
 		83DE15CD14FD8FF3005E1F97 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				DSTROOT = /tmp/HMLauncherView.dst;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -393,6 +394,7 @@
 		83DE15CE14FD8FF3005E1F97 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				DSTROOT = /tmp/HMLauncherView.dst;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

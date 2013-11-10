@@ -121,11 +121,4 @@
     }
     return self;
 }
-
-- (void) dealloc {
-    [iconImage release], iconImage = nil;
-    [closeImage release], closeImage = nil;
-    [super dealloc];
-}
-
 @end

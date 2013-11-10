@@ -205,8 +205,7 @@
     [launcherIcon setCanBeDragged:YES];   
 
     
-    [launcherItem release];
-    return [launcherIcon autorelease]; 
+    return launcherIcon; 
 }
 
 - (BOOL) launcherItem:(HMLauncherItem*) item inData:(HMLauncherData*) data {
@@ -218,22 +217,16 @@
 #pragma mark - lifecycle
 - (id) init {
     if (self = [super init]) {
-        self.launcherDataLeft  = [[[HMLauncherData alloc] init] autorelease];
+        self.launcherDataLeft  = [[HMLauncherData alloc] init];
         self.launcherDataLeft.persistKey = @"LauncherDataLeft";
         self.launcherDataLeft.maxRows = 3;
         self.launcherDataLeft.maxColumns = 3;
-        self.launcherDataRight = [[[HMLauncherData alloc] init] autorelease];
+        self.launcherDataRight = [[HMLauncherData alloc] init];
         self.launcherDataRight.persistKey = @"LauncherDataRight"; 
         self.launcherDataRight.maxRows = 2;
         self.launcherDataRight.maxColumns = 4;
     }
     return self;
-}
-
-- (void) dealloc {
-    [launcherDataLeft release], launcherDataLeft = nil;
-    [launcherDataRight release], launcherDataRight = nil;
-    [super dealloc];
 }
 
 @end

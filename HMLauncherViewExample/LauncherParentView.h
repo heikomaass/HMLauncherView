@@ -18,7 +18,7 @@
 
 @interface LauncherParentView : UIView
 
-@property (nonatomic, retain) HMLauncherView *launcherViewLeft;
-@property (nonatomic, retain) HMLauncherView *launcherViewRight;
+@property (nonatomic, strong) HMLauncherView *launcherViewLeft;
+@property (nonatomic, strong) HMLauncherView *launcherViewRight;
 
 @end

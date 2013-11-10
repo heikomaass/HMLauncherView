@@ -569,6 +569,7 @@
 		83DE162014FD9236005E1F97 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HMLauncherViewExample/HMLauncherViewExample-Prefix.pch";
 				INFOPLIST_FILE = "HMLauncherViewExample/HMLauncherViewExample-Info.plist";
@@ -580,6 +581,7 @@
 		83DE162114FD9236005E1F97 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HMLauncherViewExample/HMLauncherViewExample-Prefix.pch";
 				INFOPLIST_FILE = "HMLauncherViewExample/HMLauncherViewExample-Info.plist";

@@ -45,7 +45,7 @@ static const CGFloat kLongPressDuration = 0.3;
 - (NSInteger) calculateSpringOffset:(HMLauncherIcon*) icon;
 - (void) executeScroll:(NSTimer*) timer;
 
-- (void) didLongPressIcon:(UILongPressGestureRecognizer*) sender withEvent:(UIEvent*) event;
+- (void) didLongPressIcon:(UILongPressGestureRecognizer*) sender;
 - (void) didTapIcon:(UITapGestureRecognizer*) sender;
 - (void) longPressBegan:(HMLauncherIcon*) icon;
 - (void) longPressMoved:(HMLauncherIcon*) icon 
@@ -82,11 +82,11 @@ static const CGFloat kLongPressDuration = 0.3;
 - (void) updateDeleteButtons;
 - (UIView*) keyView;
 
-@property (nonatomic, retain) UIScrollView *scrollView;
-@property (nonatomic, retain) UIPageControl *pageControl;
-@property (nonatomic, assign) NSTimer *scrollTimer;
-@property (nonatomic, assign) HMLauncherIcon *dragIcon;
-@property (nonatomic, assign) HMLauncherIcon *closingIcon;
+@property (nonatomic, strong) UIScrollView *scrollView;
+@property (nonatomic, strong) UIPageControl *pageControl;
+@property (nonatomic, weak) NSTimer *scrollTimer;
+@property (nonatomic, weak) HMLauncherIcon *dragIcon;
+@property (nonatomic, weak) HMLauncherIcon *closingIcon;
 
 @end
 
@@ -276,7 +276,6 @@ static const CGFloat kLongPressDuration = 0.3;
     for (UIGestureRecognizer *recognizer in gestureRecognizers) {
         [icon removeGestureRecognizer:recognizer];
     }
-    [gestureRecognizers release];
 }
 
 - (UILongPressGestureRecognizer*) launcherIcon:(HMLauncherIcon*) icon 
@@ -284,13 +283,13 @@ static const CGFloat kLongPressDuration = 0.3;
                 requireGestureRecognizerToFail:(UIGestureRecognizer*) recognizerToFail {
     // LongPress gesture
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self 
-                                                                                            action:@selector(didLongPressIcon:withEvent:)];
+                                                                                            action:@selector(didLongPressIcon:)];
     [longPress setMinimumPressDuration:duration];
     if (recognizerToFail != nil) {
         [longPress requireGestureRecognizerToFail:recognizerToFail];
     }
     [icon addGestureRecognizer:longPress];
-    return [longPress autorelease];
+    return longPress;
 }
 
 - (UITapGestureRecognizer*) launcherIcon:(HMLauncherIcon*) icon 
@@ -298,7 +297,7 @@ static const CGFloat kLongPressDuration = 0.3;
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapIcon:)];
     [tap setNumberOfTapsRequired:tapsRequired];
     [icon addGestureRecognizer:tap];
-    return [tap autorelease];
+    return tap;
 }
 
 # pragma mark - Gesture Actions
@@ -316,7 +315,6 @@ static const CGFloat kLongPressDuration = 0.3;
                                                   otherButtonTitles:NSLocalizedString(@"HMLauncherView_Ok", nil), nil];
         self.closingIcon = launcherIcon;
         [alertView show];
-        [alertView release];
     } else {
         if ([self.delegate respondsToSelector:@selector(launcherView:didTapLauncherIcon:)]) {
             [self.delegate launcherView:self didTapLauncherIcon:launcherIcon];            
@@ -324,7 +322,7 @@ static const CGFloat kLongPressDuration = 0.3;
     }
 }
 
-- (void) didLongPressIcon:(UILongPressGestureRecognizer*) sender withEvent:(UIEvent*) event {
+- (void) didLongPressIcon:(UILongPressGestureRecognizer*) sender {
     if ([self.scrollView isDragging]) {
         return;
     }
@@ -631,7 +629,7 @@ static const CGFloat kLongPressDuration = 0.3;
     
     NSUInteger currentButtonIndex = (currentRowIndex * maxColumns) + currentColumnIndex; 
     NSUInteger indexes[] = { currentPageIndex, currentButtonIndex } ;
-    NSIndexPath *indexPath = [[[NSIndexPath alloc] initWithIndexes:indexes length:2]autorelease];
+    NSIndexPath *indexPath = [[NSIndexPath alloc] initWithIndexes:indexes length:2];
     return indexPath;
 }
 
@@ -771,16 +769,16 @@ static const CGFloat kLongPressDuration = 0.3;
 - (id)initWithFrame:(CGRect) frame {
     if (self = [super initWithFrame:frame]) {
         [self setAutoresizingMask:UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth];
-        self.scrollView = [[[UIScrollView alloc] initWithFrame:self.bounds] autorelease];
+        self.scrollView = [[UIScrollView alloc] initWithFrame:self.bounds];
         [self.scrollView setDelegate:self];
         [self.scrollView setPagingEnabled:YES];
         [self.scrollView setShowsHorizontalScrollIndicator:NO]; 
         [self.scrollView setShowsVerticalScrollIndicator:NO];
         [self addSubview:self.scrollView];
         
-        self.pageControl = [[[UIPageControl alloc] initWithFrame:
+        self.pageControl = [[UIPageControl alloc] initWithFrame:
                              CGRectMake(0, 10, 10, 10)
-                             ] autorelease];
+                             ];
         [self.pageControl setHidesForSinglePage:YES];
         [self addSubview:self.pageControl];
 
@@ -792,10 +790,6 @@ static const CGFloat kLongPressDuration = 0.3;
     dataSource = nil;
     delegate = nil;
     [scrollTimer invalidate], scrollTimer = nil;
-    [targetPath release], targetPath = nil;    
-    [scrollView release], scrollView = nil;
-    [pageControl release], pageControl = nil;
-    [super dealloc];
 }
 
 @end

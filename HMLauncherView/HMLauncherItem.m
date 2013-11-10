@@ -38,11 +38,4 @@
 	return self;
 }
 
-- (void) dealloc {
-    [identifier release], identifier = nil;
-    [iconPath release], iconPath = nil;
-    [iconBackgroundPath release], iconBackgroundPath = nil;
-    [titleText release], titleText = nil;
-    [super dealloc];
-}
 @end

@@ -24,7 +24,7 @@
 - (LauncherParentView*) launcherParentView;
 - (id) initWithLauncherService:(LauncherService*) inLauncherService;
 
-@property (nonatomic, retain) LauncherService *launcherService;
-@property (nonatomic, assign) HMLauncherView *currentDraggingView;
+@property (nonatomic, strong) LauncherService *launcherService;
+@property (nonatomic, weak) HMLauncherView *currentDraggingView;
 @end
 

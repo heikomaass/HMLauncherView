@@ -43,7 +43,6 @@
 - (void)loadView {
     LauncherParentView *launcherParentView = [[LauncherParentView alloc] initWithFrame:CGRectZero];
     self.view = launcherParentView;
-    [launcherParentView release];
 }
 
 
@@ -171,11 +170,6 @@
     }
     return self;
     
-}
-
-- (void) dealloc {
-    [launcherService release], launcherService = nil;
-    [super dealloc];
 }
 
 

@@ -35,9 +35,9 @@
 
 @property (nonatomic, assign) BOOL shouldLayoutDragButton;
 @property (nonatomic, readonly) BOOL editing;
-@property (nonatomic, retain) NSIndexPath *targetPath;
-@property (nonatomic, assign) NSObject<HMLauncherDataSource> *dataSource;
-@property (nonatomic, assign) NSObject<HMLauncherViewDelegate> *delegate;
-@property (nonatomic, retain) NSString *persistKey;
+@property (nonatomic, strong) NSIndexPath *targetPath;
+@property (nonatomic, weak) NSObject<HMLauncherDataSource> *dataSource;
+@property (nonatomic, weak) NSObject<HMLauncherViewDelegate> *delegate;
+@property (nonatomic, strong) NSString *persistKey;
 
 @end

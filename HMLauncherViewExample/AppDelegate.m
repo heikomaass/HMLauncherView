@@ -22,20 +22,13 @@
 @synthesize window = _window;
 @synthesize viewController = _viewController;
 
-- (void)dealloc
-{
-    [_window release];
-    [_viewController release];
-    [super dealloc];
-}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     LauncherService *launcherService = [[LauncherService alloc] init];
     [launcherService loadLauncherData];
-    UIViewController *launcherController = [[[LauncherViewController alloc] initWithLauncherService:launcherService] autorelease];
-    [launcherService release];
+    UIViewController *launcherController = [[LauncherViewController alloc] initWithLauncherService:launcherService];
     self.viewController = launcherController;
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];

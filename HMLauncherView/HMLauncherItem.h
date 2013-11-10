@@ -17,8 +17,8 @@
 
 // The item represents the "data" of an icon and can be serialized.
 @interface HMLauncherItem : NSObject
-@property (nonatomic, retain) NSString *identifier;
-@property (nonatomic, retain) NSString *iconPath;
-@property (nonatomic, retain) NSString *iconBackgroundPath;
-@property (nonatomic, retain) NSString *titleText;
+@property (nonatomic, strong) NSString *identifier;
+@property (nonatomic, strong) NSString *iconPath;
+@property (nonatomic, strong) NSString *iconBackgroundPath;
+@property (nonatomic, strong) NSString *titleText;
 @end

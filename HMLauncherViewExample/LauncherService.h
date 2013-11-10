@@ -21,7 +21,7 @@
 
 - (void) loadLauncherData;
 
-@property (nonatomic, retain) HMLauncherData *launcherDataLeft;
-@property (nonatomic, retain) HMLauncherData *launcherDataRight;
+@property (nonatomic, strong) HMLauncherData *launcherDataLeft;
+@property (nonatomic, strong) HMLauncherData *launcherDataRight;
 
 @end

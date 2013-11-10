@@ -22,8 +22,8 @@
 
 @property (nonatomic, assign) NSInteger maxRows;
 @property (nonatomic, assign) NSInteger maxColumns;
-@property (nonatomic, retain) NSString *persistKey;
-@property (nonatomic, retain) NSMutableArray *launcherIconPages;
+@property (nonatomic, strong) NSString *persistKey;
+@property (nonatomic, strong) NSMutableArray *launcherIconPages;
 
 
 - (void)  addIcon:(HMLauncherIcon*) icon;
