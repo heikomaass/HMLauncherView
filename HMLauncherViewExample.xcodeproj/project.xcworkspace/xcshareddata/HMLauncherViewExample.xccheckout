@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>AD5CB514-26D1-4225-85CF-8EFBE7490F56</string>
+	<key>IDESourceControlProjectName</key>
+	<string>HMLauncherViewExample</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>B667FB83-3369-478C-B6EF-B5D9BD8DF4B0</key>
+		<string>ssh://github.com/heikomaass/HMLauncherView.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>HMLauncherViewExample.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>B667FB83-3369-478C-B6EF-B5D9BD8DF4B0</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/heikomaass/HMLauncherView.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>B667FB83-3369-478C-B6EF-B5D9BD8DF4B0</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>B667FB83-3369-478C-B6EF-B5D9BD8DF4B0</string>
+			<key>IDESourceControlWCCName</key>
+			<string>HMLauncherView</string>
+		</dict>
+	</array>
+</dict>
+</plist>
