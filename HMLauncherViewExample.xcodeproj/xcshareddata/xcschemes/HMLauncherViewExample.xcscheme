@@ -28,6 +28,26 @@
       shouldUseLaunchSchemeArgsEnv = "YES"
       buildConfiguration = "Debug">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "83C69B9F183019A800B0FA8B"
+               BuildableName = "HMLauncherViewExample Tests.xctest"
+               BlueprintName = "HMLauncherViewExample Tests"
+               ReferencedContainer = "container:HMLauncherViewExample.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "83B437BE18317FF000C9C174"
+               BuildableName = "HMLauncherViewExampleTests.xctest"
+               BlueprintName = "HMLauncherViewExampleTests"
+               ReferencedContainer = "container:HMLauncherViewExample.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

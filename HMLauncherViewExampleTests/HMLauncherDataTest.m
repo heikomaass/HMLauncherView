@@ -29,15 +29,15 @@
     cut = [[HMLauncherData alloc] init];
     [cut setMaxRows:2];
     [cut setMaxColumns:2];
-    STAssertNotNil(cut, @"HMLauncherData could not be created");
+    XCTAssertNotNil(cut, @"HMLauncherData could not be created");
 }
 
 - (void) test_when_one_icon_is_added_page_count_should_be_one {
     HMLauncherIcon *icon = [self createDummyIcon];
     [cut addIcon:icon];
     
-    STAssertEquals((NSUInteger) 1, [cut pageCount], @"expected 1 page, but is: %d", [cut pageCount]);
-    STAssertEquals((NSUInteger) 1, [cut iconCount], @"expected 1 icon, but is: %d", [cut iconCount]);
+    XCTAssertEqual((NSUInteger) 1, [cut pageCount], @"expected 1 page, but is: %d", [cut pageCount]);
+    XCTAssertEqual((NSUInteger) 1, [cut iconCount], @"expected 1 icon, but is: %d", [cut iconCount]);
 }
 
 - (void) test_when_five_icons_are_added_page_count_should_be_two {
@@ -51,22 +51,19 @@
     [cut addIcon:icon3];
     [cut addIcon:icon4];
     [cut addIcon:icon5];
-    STAssertEquals((NSUInteger) 2, [cut pageCount], @"expected 2 page, but is: %d", [cut pageCount]);
-    STAssertEquals((NSUInteger) 5, [cut iconCount], @"expected 5 icon, but is: %d", [cut iconCount]);
+    XCTAssertEqual((NSUInteger) 2, [cut pageCount], @"expected 2 page, but is: %d", [cut pageCount]);
+    XCTAssertEqual((NSUInteger) 5, [cut iconCount], @"expected 5 icon, but is: %d", [cut iconCount]);
 
 }
 
 - (HMLauncherIcon*) createDummyIcon {
-    HMLauncherItem *item = [[[HMLauncherItem alloc] init] autorelease];
+    HMLauncherItem *item = [[HMLauncherItem alloc] init] ;
     [item setIconPath:@"dummy.png"] ;
     
-    HMLauncherIcon *icon = [[[HMLauncherIcon alloc] initWithLauncherItem:item] autorelease];
+    HMLauncherIcon *icon = [[HMLauncherIcon alloc] initWithLauncherItem:item];
     return icon;
 }
 
-- (void) tearDown {
-    [cut release];
-}
 
 
 @end

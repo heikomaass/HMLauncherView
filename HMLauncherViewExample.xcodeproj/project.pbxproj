@@ -11,6 +11,12 @@
 		8339FD9614FE649E003BB71C /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = 8339FD9514FE649E003BB71C /* close.png */; };
 		8339FDA714FE7045003BB71C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8339FDA614FE7045003BB71C /* Localizable.strings */; };
 		8343A2E7151D093B00460638 /* libHMLauncherView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8343A2E4151D090600460638 /* libHMLauncherView.a */; };
+		83B437C018317FF000C9C174 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83C69BA1183019A800B0FA8B /* XCTest.framework */; };
+		83B437C118317FF100C9C174 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83DE160714FD9236005E1F97 /* Foundation.framework */; };
+		83B437C218317FF100C9C174 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83DE160514FD9236005E1F97 /* UIKit.framework */; };
+		83B437C818317FF100C9C174 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 83B437C618317FF100C9C174 /* InfoPlist.strings */; };
+		83B437D41831801B00C9C174 /* dummy.png in Resources */ = {isa = PBXBuildFile; fileRef = 83B437D11831801B00C9C174 /* dummy.png */; };
+		83B437D51831801B00C9C174 /* HMLauncherDataTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 83B437D31831801B00C9C174 /* HMLauncherDataTest.m */; };
 		83C0003B1515380D00047174 /* 1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 83C0001E1515380100047174 /* 1@2x.png */; };
 		83C0003C1515380D00047174 /* 2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 83C0001F1515380200047174 /* 2@2x.png */; };
 		83C0003D1515380D00047174 /* 3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 83C000201515380200047174 /* 3@2x.png */; };
@@ -96,6 +102,13 @@
 			remoteGlobalIDString = 83DE15B814FD8FF3005E1F97;
 			remoteInfo = HMLauncherViewTests;
 		};
+		83B437CC18317FF100C9C174 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 83DE15F814FD9236005E1F97 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 83DE160014FD9236005E1F97;
+			remoteInfo = HMLauncherViewExample;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -103,6 +116,13 @@
 		8339FD9314FE582E003BB71C /* LauncherExampleIcon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LauncherExampleIcon.m; sourceTree = "<group>"; };
 		8339FD9514FE649E003BB71C /* close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close.png; sourceTree = "<group>"; };
 		8339FDA614FE7045003BB71C /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		83B437BF18317FF000C9C174 /* HMLauncherViewExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HMLauncherViewExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		83B437C518317FF100C9C174 /* HMLauncherViewExampleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HMLauncherViewExampleTests-Info.plist"; sourceTree = "<group>"; };
+		83B437C718317FF100C9C174 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		83B437CB18317FF100C9C174 /* HMLauncherViewExampleTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HMLauncherViewExampleTests-Prefix.pch"; sourceTree = "<group>"; };
+		83B437D11831801B00C9C174 /* dummy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dummy.png; sourceTree = "<group>"; };
+		83B437D21831801B00C9C174 /* HMLauncherDataTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMLauncherDataTest.h; sourceTree = "<group>"; };
+		83B437D31831801B00C9C174 /* HMLauncherDataTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMLauncherDataTest.m; sourceTree = "<group>"; };
 		83C0001E1515380100047174 /* 1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1@2x.png"; sourceTree = "<group>"; };
 		83C0001F1515380200047174 /* 2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "2@2x.png"; sourceTree = "<group>"; };
 		83C000201515380200047174 /* 3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "3@2x.png"; sourceTree = "<group>"; };
@@ -132,6 +152,7 @@
 		83C000381515380A00047174 /* k@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "k@2x.png"; sourceTree = "<group>"; };
 		83C000391515380C00047174 /* l@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "l@2x.png"; sourceTree = "<group>"; };
 		83C0003A1515380D00047174 /* m@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "m@2x.png"; sourceTree = "<group>"; };
+		83C69BA1183019A800B0FA8B /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		83DE160114FD9236005E1F97 /* HMLauncherViewExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HMLauncherViewExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83DE160514FD9236005E1F97 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		83DE160714FD9236005E1F97 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -182,6 +203,16 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		83B437BC18317FF000C9C174 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83B437C018317FF000C9C174 /* XCTest.framework in Frameworks */,
+				83B437C218317FF100C9C174 /* UIKit.framework in Frameworks */,
+				83B437C118317FF100C9C174 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		83DE15FE14FD9236005E1F97 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -205,11 +236,33 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		83B437C318317FF100C9C174 /* HMLauncherViewExampleTests */ = {
+			isa = PBXGroup;
+			children = (
+				83B437D11831801B00C9C174 /* dummy.png */,
+				83B437D21831801B00C9C174 /* HMLauncherDataTest.h */,
+				83B437D31831801B00C9C174 /* HMLauncherDataTest.m */,
+				83B437C418317FF100C9C174 /* Supporting Files */,
+			);
+			path = HMLauncherViewExampleTests;
+			sourceTree = "<group>";
+		};
+		83B437C418317FF100C9C174 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				83B437C518317FF100C9C174 /* HMLauncherViewExampleTests-Info.plist */,
+				83B437C618317FF100C9C174 /* InfoPlist.strings */,
+				83B437CB18317FF100C9C174 /* HMLauncherViewExampleTests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		83DE15F614FD9236005E1F97 = {
 			isa = PBXGroup;
 			children = (
 				83DE162214FD9261005E1F97 /* HMLauncherView.xcodeproj */,
 				83DE160B14FD9236005E1F97 /* HMLauncherViewExample */,
+				83B437C318317FF100C9C174 /* HMLauncherViewExampleTests */,
 				83DE160414FD9236005E1F97 /* Frameworks */,
 				83DE160214FD9236005E1F97 /* Products */,
 			);
@@ -219,6 +272,7 @@
 			isa = PBXGroup;
 			children = (
 				83DE160114FD9236005E1F97 /* HMLauncherViewExample.app */,
+				83B437BF18317FF000C9C174 /* HMLauncherViewExampleTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -229,6 +283,7 @@
 				83DE160514FD9236005E1F97 /* UIKit.framework */,
 				83DE160714FD9236005E1F97 /* Foundation.framework */,
 				83DE160914FD9236005E1F97 /* CoreGraphics.framework */,
+				83C69BA1183019A800B0FA8B /* XCTest.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -334,6 +389,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		83B437BE18317FF000C9C174 /* HMLauncherViewExampleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 83B437CE18317FF100C9C174 /* Build configuration list for PBXNativeTarget "HMLauncherViewExampleTests" */;
+			buildPhases = (
+				83B437BB18317FF000C9C174 /* Sources */,
+				83B437BC18317FF000C9C174 /* Frameworks */,
+				83B437BD18317FF000C9C174 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				83B437CD18317FF100C9C174 /* PBXTargetDependency */,
+			);
+			name = HMLauncherViewExampleTests;
+			productName = HMLauncherViewExampleTests;
+			productReference = 83B437BF18317FF000C9C174 /* HMLauncherViewExampleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		83DE160014FD9236005E1F97 /* HMLauncherViewExample */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 83DE161F14FD9236005E1F97 /* Build configuration list for PBXNativeTarget "HMLauncherViewExample" */;
@@ -359,6 +432,11 @@
 			attributes = {
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Heiko Maass";
+				TargetAttributes = {
+					83B437BE18317FF000C9C174 = {
+						TestTargetID = 83DE160014FD9236005E1F97;
+					};
+				};
 			};
 			buildConfigurationList = 83DE15FB14FD9236005E1F97 /* Build configuration list for PBXProject "HMLauncherViewExample" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -379,6 +457,7 @@
 			projectRoot = "";
 			targets = (
 				83DE160014FD9236005E1F97 /* HMLauncherViewExample */,
+				83B437BE18317FF000C9C174 /* HMLauncherViewExampleTests */,
 			);
 		};
 /* End PBXProject section */
@@ -401,6 +480,15 @@
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
+		83B437BD18317FF000C9C174 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83B437D41831801B00C9C174 /* dummy.png in Resources */,
+				83B437C818317FF100C9C174 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		83DE15FF14FD9236005E1F97 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -473,6 +561,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		83B437BB18317FF000C9C174 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83B437D51831801B00C9C174 /* HMLauncherDataTest.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		83DE15FD14FD9236005E1F97 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -488,7 +584,23 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		83B437CD18317FF100C9C174 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 83DE160014FD9236005E1F97 /* HMLauncherViewExample */;
+			targetProxy = 83B437CC18317FF100C9C174 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
+		83B437C618317FF100C9C174 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				83B437C718317FF100C9C174 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		83DE160E14FD9236005E1F97 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -500,6 +612,65 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		83B437CF18317FF100C9C174 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/HMLauncherViewExample.app/HMLauncherViewExample";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "HMLauncherViewExampleTests/HMLauncherViewExampleTests-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				INFOPLIST_FILE = "HMLauncherViewExampleTests/HMLauncherViewExampleTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		83B437D018317FF100C9C174 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/HMLauncherViewExample.app/HMLauncherViewExample";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				ENABLE_NS_ASSERTIONS = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "HMLauncherViewExampleTests/HMLauncherViewExampleTests-Prefix.pch";
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				INFOPLIST_FILE = "HMLauncherViewExampleTests/HMLauncherViewExampleTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
 		83DE161D14FD9236005E1F97 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -593,6 +764,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		83B437CE18317FF100C9C174 /* Build configuration list for PBXNativeTarget "HMLauncherViewExampleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				83B437CF18317FF100C9C174 /* Debug */,
+				83B437D018317FF100C9C174 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		83DE15FB14FD9236005E1F97 /* Build configuration list for PBXProject "HMLauncherViewExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
