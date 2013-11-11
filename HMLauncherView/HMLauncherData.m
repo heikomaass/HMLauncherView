@@ -16,15 +16,12 @@
 #import "HMLauncherData.h"
 
 @implementation HMLauncherData
-@synthesize maxRows;
-@synthesize maxColumns;
-@synthesize persistKey;
-@synthesize launcherIconPages;
+
 
 - (void) addIcon:(HMLauncherIcon *)icon {
     NSParameterAssert(icon != nil);    
-    NSParameterAssert(maxRows > 0);
-    NSParameterAssert(maxColumns > 0);
+    NSParameterAssert(self.maxRows > 0);
+    NSParameterAssert(self.maxColumns > 0);
     
     // Go to last page    
     NSInteger lastPageIndex = [self.launcherIconPages count] - 1;
@@ -122,7 +119,7 @@
 - (NSArray*) findIconsByIdentifier:(NSString*) identifier {
     NSParameterAssert(identifier != nil);
     NSMutableArray *result = [NSMutableArray arrayWithCapacity:2];
-    for (NSMutableArray* page in launcherIconPages) {
+    for (NSMutableArray* page in self.launcherIconPages) {
         for (HMLauncherIcon *icon in page) {
             NSParameterAssert(icon.identifier != nil);
             if ([icon.identifier isEqualToString:identifier]){
@@ -135,7 +132,7 @@
 
 - (NSMutableArray*) pageOfIcon:(HMLauncherIcon*) icon {
     NSParameterAssert(icon != nil);
-    for (NSMutableArray* page in launcherIconPages) {
+    for (NSMutableArray* page in self.launcherIconPages) {
         if ([page containsObject:icon]) {
             return page;
         }
@@ -145,12 +142,12 @@
 
 - (NSString*) description {
     return [NSString stringWithFormat:@"%@, maxRows:%d, maxColumns:%d, [launcherIconPages count]:%d", 
-            persistKey, maxRows, maxColumns, [launcherIconPages count]];
+            self.persistKey, self.maxRows,self.maxColumns, [self.launcherIconPages count]];
 }
 
 - (NSUInteger) iconCount {
     NSUInteger icons = 0;
-    for (NSMutableArray* page in launcherIconPages) {
+    for (NSMutableArray* page in self.launcherIconPages) {
         icons += [page count];
     }
     return icons;
@@ -162,7 +159,7 @@
 
 - (id) init {
     if (self = [super init]) {
-        self.launcherIconPages = [NSMutableArray arrayWithCapacity:10];
+        _launcherIconPages = [NSMutableArray arrayWithCapacity:10];
     }
     return self;
 }

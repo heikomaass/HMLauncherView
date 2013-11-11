@@ -91,16 +91,6 @@ static const CGFloat kLongPressDuration = 0.3;
 @end
 
 @implementation HMLauncherView
-@synthesize dataSource;
-@synthesize delegate;
-@synthesize pageControl;
-@synthesize scrollView;
-@synthesize scrollTimer;
-@synthesize dragIcon;
-@synthesize closingIcon;
-@synthesize shouldLayoutDragButton;
-@synthesize targetPath;
-@synthesize persistKey;
 
 - (void) reloadData {
     self.dragIcon = nil;
@@ -109,7 +99,7 @@ static const CGFloat kLongPressDuration = 0.3;
     [self.pageControl setNumberOfPages:numberOfPages];
     
     // Remove all previous stuff from ScrollView;
-    [[scrollView subviews] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+    [[self.scrollView subviews] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         UIView *subview = obj;
         [subview removeFromSuperview];
     }];
@@ -224,7 +214,7 @@ static const CGFloat kLongPressDuration = 0.3;
         
         NSMutableArray *iconsWithSpacer = [NSMutableArray arrayWithCapacity:(numberOfColumns * numberOfRows) + 1];
         [self enumerateIconsOfPage:pageIndex usingBlock:^(HMLauncherIcon *icon, NSUInteger iconIndex) {
-            if (icon != dragIcon || (icon == dragIcon && shouldLayoutDragButton)) {
+            if (icon != self.dragIcon || (icon == self.dragIcon && self.shouldLayoutDragButton)) {
                 [iconsWithSpacer addObject:icon];
             } 
         }];
@@ -258,9 +248,9 @@ static const CGFloat kLongPressDuration = 0.3;
                 CGFloat iconX = iconXStart + (currentColumnIndex * (iconSize.width + iconSpacer));
                 [icon setBounds:CGRectMake(0, 0, iconSize.width, iconSize.height)];
                 CGPoint iconCenterInScrollView = CGPointMake(iconX + iconSize.width / 2, iconY + iconSize.height / 2);
-                if (icon != dragIcon) {
+                if (icon != self.dragIcon) {
                     [icon setCenter:iconCenterInScrollView];
-                } else if (shouldLayoutDragButton) {
+                } else if (self.shouldLayoutDragButton) {
                     CGPoint iconCenterInKeyView = [self.scrollView convertPoint:iconCenterInScrollView 
                                                                          toView:icon.superview];
                     [icon setCenter:iconCenterInKeyView];           
@@ -349,7 +339,7 @@ static const CGFloat kLongPressDuration = 0.3;
 }
 
 - (void) longPressBegan:(HMLauncherIcon*) icon {
-    NSLog(@"longPressBegan: %@", persistKey);
+    NSLog(@"longPressBegan: %@", self.persistKey);
     if (!self.editing) {
         [self startEditing];
         if ([self.delegate respondsToSelector:@selector(launcherViewDidStartEditing:)]) {
@@ -467,7 +457,7 @@ static const CGFloat kLongPressDuration = 0.3;
         [self updatePagerWithContentOffset:self.scrollView.contentOffset];
         [self startShaking];
     } else {
-        NSLog(@" %@: editing of was already started", persistKey);
+        NSLog(@" %@: editing of was already started", self.persistKey);
     }
 }
 
@@ -483,7 +473,7 @@ static const CGFloat kLongPressDuration = 0.3;
         [self setDragIcon:nil];
         [self layoutIconsAnimated];
     } else {
-        NSLog(@" %@: editing of was already stopped", persistKey);
+        NSLog(@" %@: editing of was already stopped", self.persistKey);
     }
     
 }
@@ -516,7 +506,7 @@ static const CGFloat kLongPressDuration = 0.3;
 }
 
 - (void) stopScrollTimer {
-    [self.scrollTimer invalidate], scrollTimer = nil;
+    [self.scrollTimer invalidate], self.scrollTimer = nil;
 }
 
 - (void) executeScroll:(NSTimer*) timer {
@@ -769,27 +759,24 @@ static const CGFloat kLongPressDuration = 0.3;
 - (id)initWithFrame:(CGRect) frame {
     if (self = [super initWithFrame:frame]) {
         [self setAutoresizingMask:UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth];
-        self.scrollView = [[UIScrollView alloc] initWithFrame:self.bounds];
-        [self.scrollView setDelegate:self];
-        [self.scrollView setPagingEnabled:YES];
-        [self.scrollView setShowsHorizontalScrollIndicator:NO]; 
-        [self.scrollView setShowsVerticalScrollIndicator:NO];
+        _scrollView = [[UIScrollView alloc] initWithFrame:self.bounds];
+        [_scrollView setDelegate:self];
+        [_scrollView setPagingEnabled:YES];
+        [_scrollView setShowsHorizontalScrollIndicator:NO];
+        [_scrollView setShowsVerticalScrollIndicator:NO];
         [self addSubview:self.scrollView];
         
-        self.pageControl = [[UIPageControl alloc] initWithFrame:
+        _pageControl = [[UIPageControl alloc] initWithFrame:
                              CGRectMake(0, 10, 10, 10)
                              ];
-        [self.pageControl setHidesForSinglePage:YES];
-        [self addSubview:self.pageControl];
-
+        [_pageControl setHidesForSinglePage:YES];
+        [self addSubview:_pageControl];
     }
     return self;
 }
 
-- (void) dealloc {  
-    dataSource = nil;
-    delegate = nil;
-    [scrollTimer invalidate], scrollTimer = nil;
+- (void) dealloc {
+    [_scrollTimer invalidate], _scrollTimer = nil;
 }
 
 @end

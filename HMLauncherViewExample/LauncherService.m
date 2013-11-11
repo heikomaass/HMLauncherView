@@ -29,8 +29,6 @@
 @end
 
 @implementation LauncherService
-@synthesize launcherDataLeft;
-@synthesize launcherDataRight;
 
 - (NSMutableArray*) addPageToLauncherView:(HMLauncherView*) launcherView {
     NSParameterAssert(launcherView != nil);
@@ -217,14 +215,14 @@
 #pragma mark - lifecycle
 - (id) init {
     if (self = [super init]) {
-        self.launcherDataLeft  = [[HMLauncherData alloc] init];
-        self.launcherDataLeft.persistKey = @"LauncherDataLeft";
-        self.launcherDataLeft.maxRows = 3;
-        self.launcherDataLeft.maxColumns = 3;
-        self.launcherDataRight = [[HMLauncherData alloc] init];
-        self.launcherDataRight.persistKey = @"LauncherDataRight"; 
-        self.launcherDataRight.maxRows = 2;
-        self.launcherDataRight.maxColumns = 4;
+        _launcherDataLeft  = [[HMLauncherData alloc] init];
+        _launcherDataLeft.persistKey = @"LauncherDataLeft";
+        _launcherDataLeft.maxRows = 3;
+        _launcherDataLeft.maxColumns = 3;
+        _launcherDataRight = [[HMLauncherData alloc] init];
+        _launcherDataRight.persistKey = @"LauncherDataRight";
+        _launcherDataRight.maxRows = 2;
+        _launcherDataRight.maxColumns = 4;
     }
     return self;
 }

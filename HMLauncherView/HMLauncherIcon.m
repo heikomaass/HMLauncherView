@@ -17,13 +17,6 @@
 #import "HMLauncherItem.h"
 
 @implementation HMLauncherIcon
-@synthesize canBeDeleted;
-@synthesize canBeDragged;
-@synthesize canBeTapped;
-@synthesize hideDeleteImage;
-@synthesize identifier;
-@synthesize originIndexPath;
-@synthesize launcherItem;
 
 - (BOOL) hitCloseButton:(CGPoint)point {
     NSAssert(NO, @"this method must be overridden");
@@ -39,15 +32,15 @@
 }
 
 - (NSString*) description {
-    return [NSString stringWithFormat:@"%@ identifier:%@", launcherItem.titleText, self.identifier];
+    return [NSString stringWithFormat:@"%@ identifier:%@", self.launcherItem.titleText, self.identifier];
 }
 
 #pragma mark - lifecycle
 - (id) initWithLauncherItem: (HMLauncherItem*) inLauncherItem {
     if (self = [super initWithFrame:CGRectZero]) {
-        self.launcherItem = inLauncherItem;
-        self.identifier = inLauncherItem.identifier;
-        self.hideDeleteImage = YES;
+        _launcherItem = inLauncherItem;
+        _identifier = inLauncherItem.identifier;
+        _hideDeleteImage = YES;
         [self setClipsToBounds:NO];
         [self setContentMode:UIViewContentModeRedraw];
         [self setAutoresizingMask:UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight];

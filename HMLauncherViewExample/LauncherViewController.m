@@ -24,9 +24,7 @@
 @end
 
 @implementation LauncherViewController
-@synthesize launcherService;
-@synthesize currentDraggingView;
-@synthesize dragIconHasMoved;
+
 
 - (void)didReceiveMemoryWarning {
     // Releases the view if it doesn't have a superview.
@@ -47,23 +45,23 @@
 
 
 - (void)viewDidLoad {
-    NSParameterAssert(launcherService != nil);
-    [launcherService launcherDataLeft];
-    HMLauncherData *launcherDataLeft = launcherService.launcherDataLeft;
+    NSParameterAssert(self.launcherService != nil);
+    [self.launcherService launcherDataLeft];
+    HMLauncherData *launcherDataLeft = self.launcherService.launcherDataLeft;
     HMLauncherView *launcherViewLeft = self.launcherParentView.launcherViewLeft;
     
     NSParameterAssert(launcherDataLeft != nil);
     [launcherViewLeft setPersistKey:launcherDataLeft.persistKey];
-    [launcherViewLeft setDataSource:launcherService];
+    [launcherViewLeft setDataSource:self.launcherService];
     [launcherViewLeft setDelegate:self];
     [launcherViewLeft reloadData];
     
     
-    HMLauncherData *launcherDataRight = launcherService.launcherDataRight;
+    HMLauncherData *launcherDataRight = self.launcherService.launcherDataRight;
     HMLauncherView *launcherViewRight = self.launcherParentView.launcherViewRight;
     NSParameterAssert(launcherViewRight != nil);
     [launcherViewRight setPersistKey:launcherDataRight.persistKey];
-    [launcherViewRight setDataSource:launcherService];
+    [launcherViewRight setDataSource:self.launcherService];
     [launcherViewRight setDelegate:self];
     [launcherViewRight reloadData];
     
@@ -166,7 +164,7 @@
 #pragma mark - Lifecycle
 - (id) initWithLauncherService:(LauncherService*) inLauncherService {
     if (self = [super init]) {
-        self.launcherService = inLauncherService;
+        _launcherService = inLauncherService;
     }
     return self;
     

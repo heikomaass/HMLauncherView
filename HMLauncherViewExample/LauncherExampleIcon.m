@@ -15,9 +15,7 @@
 @end
 
 @implementation LauncherExampleIcon
-@synthesize iconImage;
-@synthesize closeImage;
-@synthesize closeRect;
+
 
 - (BOOL) hitCloseButton:(CGPoint)point {
     return (CGRectContainsPoint(self.closeRect, point));
@@ -60,12 +58,12 @@
     CGSize maxTextSize = CGSizeMake(availableWidth, self.bounds.size.height - y);
     CGSize textSize = [text sizeWithFont:font 
                        constrainedToSize:maxTextSize 
-                           lineBreakMode:UILineBreakModeWordWrap];
+                           lineBreakMode:NSLineBreakByWordWrapping];
     
     x = floor((self.bounds.size.width - textSize.width) / 2);
     CGRect textRect = CGRectMake(x, y, textSize.width, textSize.height);
     CGContextSetAlpha(context, alpha);
-    [text drawInRect:textRect withFont:font lineBreakMode:UILineBreakModeWordWrap alignment:UITextAlignmentCenter];
+    [text drawInRect:textRect withFont:font lineBreakMode:NSLineBreakByWordWrapping alignment:NSTextAlignmentCenter];
     
 }
 
@@ -112,11 +110,11 @@
 
 - (id) initWithLauncherItem:(HMLauncherItem *)launcherItem {
     if (self = [super initWithLauncherItem:launcherItem]) {
-        closeRect = CGRectMake(2
+        _closeRect = CGRectMake(2
                                , 5, 20, 20);
-        [self setCloseImage: [UIImage imageNamed:@"close.png"]];
+        _closeImage = [UIImage imageNamed:@"close.png"];
         [self setIconImageFromIconPath:self.launcherItem.iconPath];
-        NSParameterAssert(self.iconImage != nil);
+        NSParameterAssert(_iconImage != nil);
         [self setBackgroundColor:[UIColor clearColor]];
     }
     return self;

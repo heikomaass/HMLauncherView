@@ -24,8 +24,6 @@
 @end
 
 @implementation LauncherParentView
-@synthesize launcherViewLeft;
-@synthesize launcherViewRight;
 
 - (void) drawRect:(CGRect)rect {
     CGContextRef c = UIGraphicsGetCurrentContext();
@@ -35,11 +33,11 @@
 
 - (void) layoutSubviews {
     CGRect leftHalfRect = CGRectMake(0, 0, self.bounds.size.width / 2, self.bounds.size.height);
-    CGRect launcherViewLeftRect = [self centerRectForLauncherView:launcherViewLeft parentRect:leftHalfRect];
+    CGRect launcherViewLeftRect = [self centerRectForLauncherView:self.launcherViewLeft parentRect:leftHalfRect];
     [self.launcherViewLeft setFrame:launcherViewLeftRect];
     
     CGRect rightHalfRect = CGRectMake(self.bounds.size.width / 2, 0, self.bounds.size.width / 2, self.bounds.size.height);
-    CGRect launcherViewRightRect =[self centerRectForLauncherView:launcherViewRight parentRect:rightHalfRect];
+    CGRect launcherViewRightRect =[self centerRectForLauncherView:self.launcherViewRight parentRect:rightHalfRect];
     [self.launcherViewRight setFrame:launcherViewRightRect];
     
 }
@@ -68,10 +66,10 @@
 - (id) initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
         [self setAutoresizingMask:UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight];
-        self.launcherViewLeft = [[HMLauncherView alloc] initWithFrame:CGRectZero];
-        self.launcherViewRight = [[HMLauncherView alloc] initWithFrame:CGRectZero];
-        [self addSubview:self.launcherViewLeft];
-        [self addSubview:self.launcherViewRight];
+        _launcherViewLeft = [[HMLauncherView alloc] initWithFrame:CGRectZero];
+        _launcherViewRight = [[HMLauncherView alloc] initWithFrame:CGRectZero];
+        [self addSubview:_launcherViewLeft];
+        [self addSubview:_launcherViewRight];
     }
     return self;
 }

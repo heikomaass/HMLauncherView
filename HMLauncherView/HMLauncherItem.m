@@ -16,24 +16,20 @@
 #import "HMLauncherItem.h"
 
 @implementation HMLauncherItem
-@synthesize identifier;
-@synthesize iconPath;
-@synthesize iconBackgroundPath;
-@synthesize titleText;
 
 -(void) encodeWithCoder:(NSCoder*) coder {
-	[coder encodeObject: identifier forKey: @"identifier"];
-	[coder encodeObject: iconPath forKey: @"iconPath"];
-	[coder encodeObject: titleText forKey: @"titleText"];
-    [coder encodeObject: iconBackgroundPath forKey:@"iconBackgroundPath"];
+	[coder encodeObject: _identifier forKey: @"identifier"];
+	[coder encodeObject: _iconPath forKey: @"iconPath"];
+	[coder encodeObject: _titleText forKey: @"titleText"];
+    [coder encodeObject: _iconBackgroundPath forKey:@"iconBackgroundPath"];
 }
 
 -(id) initWithCoder:(NSCoder*) decoder {
 	if (self = [super init]) {
-        self.identifier = [decoder decodeObjectForKey:@"identifier"];
-        self.iconPath   = [decoder decodeObjectForKey:@"iconPath"];
-        self.titleText  = [decoder decodeObjectForKey:@"titleText"];
-        self.iconBackgroundPath = [decoder decodeObjectForKey:@"iconBackgroundPath"];
+        _identifier = [decoder decodeObjectForKey:@"identifier"];
+        _iconPath   = [decoder decodeObjectForKey:@"iconPath"];
+        _titleText  = [decoder decodeObjectForKey:@"titleText"];
+        _iconBackgroundPath = [decoder decodeObjectForKey:@"iconBackgroundPath"];
     }
 	return self;
 }
