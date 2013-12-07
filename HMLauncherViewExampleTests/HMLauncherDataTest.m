@@ -13,55 +13,104 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#import "HMLauncherDataTest.h"
 #import "HMLauncherIcon.h"
 #import "HMLauncherItem.h"
 
 #import <UIKit/UIKit.h>
 
-@interface HMLauncherDataTest(private)
--(HMLauncherIcon*) createDummyIcon;
+#import <XCTest/XCTest.h>
+#import "HMLauncherData.h"
+
+@interface HMLauncherDataTest : XCTestCase {
+    
+}
+@end
+
+@interface HMLauncherDataTest()
+@property (nonatomic, strong) HMLauncherData *cut;
 @end
 
 @implementation HMLauncherDataTest
 
 - (void)setUp {
-    cut = [[HMLauncherData alloc] init];
-    [cut setMaxRows:2];
-    [cut setMaxColumns:2];
-    XCTAssertNotNil(cut, @"HMLauncherData could not be created");
+    _cut = [[HMLauncherData alloc] init];
+    [_cut setMaxRows:2];
+    [_cut setMaxColumns:2];
+    XCTAssertNotNil(_cut, @"HMLauncherData could not be created");
 }
 
-- (void) test_when_one_icon_is_added_page_count_should_be_one {
-    HMLauncherIcon *icon = [self createDummyIcon];
-    [cut addIcon:icon];
+- (void) testAddIcon_should_increaseIconCount_byOne {
+    [self addDummyIcons:1];
+    XCTAssertEqual((NSUInteger) 1, [_cut iconCount], @"expected 1 icon, but is: %d", [_cut iconCount]);
+}
+
+- (void) testAddIcon_should_increasePageCount_byOne {
+    [self addDummyIcons:1];
+    XCTAssertEqual((NSUInteger) 1, [_cut pageCount], @"expected 1 page, but is: %d", [_cut pageCount]);
+}
+
+- (void) testAddIcon_should_increaseIconCount_byFive {
+    [self addDummyIcons:5];
+    XCTAssertEqual((NSUInteger) 5, [_cut iconCount], @"expected 5 icon, but is: %d", [_cut iconCount]);
+}
+
+- (void) testAddIcon_should_increasePageCounty_byTwo {
+    [self addDummyIcons:5];
+    XCTAssertEqual((NSUInteger) 2, [_cut pageCount], @"expected 2 page, but is: %d", [_cut pageCount]);
+}
+
+- (void) testRemoveIcon_should_decreaseIconCount_byOne {
+    NSArray *addedIcons = [self addDummyIcons:2];
     
-    XCTAssertEqual((NSUInteger) 1, [cut pageCount], @"expected 1 page, but is: %d", [cut pageCount]);
-    XCTAssertEqual((NSUInteger) 1, [cut iconCount], @"expected 1 icon, but is: %d", [cut iconCount]);
+    [_cut removeIcon:addedIcons[0]];
+    XCTAssertEqual((NSUInteger) 1, [_cut iconCount], @"expected 1 icon, but is: %d", [_cut iconCount]);
+    NSArray *pageOfFirstIcon = [_cut pageOfIcon:addedIcons[0]];
+    NSArray *pageOfSecondIcon = [_cut pageOfIcon:addedIcons[1]];
+    XCTAssertNil(pageOfFirstIcon, @"expected nil page, because firstIcon is no longer part of the HMLauncherData");
+    XCTAssertNotNil(pageOfSecondIcon, @"expected non nil page, because secondIcon is still part of the HMLauncherData");
 }
 
-- (void) test_when_five_icons_are_added_page_count_should_be_two {
-    HMLauncherIcon *icon1 = [self createDummyIcon];
-    HMLauncherIcon *icon2 = [self createDummyIcon];
-    HMLauncherIcon *icon3 = [self createDummyIcon];
-    HMLauncherIcon *icon4 = [self createDummyIcon];
-    HMLauncherIcon *icon5 = [self createDummyIcon];
-    [cut addIcon:icon1];
-    [cut addIcon:icon2];    
-    [cut addIcon:icon3];
-    [cut addIcon:icon4];
-    [cut addIcon:icon5];
-    XCTAssertEqual((NSUInteger) 2, [cut pageCount], @"expected 2 page, but is: %d", [cut pageCount]);
-    XCTAssertEqual((NSUInteger) 5, [cut iconCount], @"expected 5 icon, but is: %d", [cut iconCount]);
-
+- (void) testRemoveIcon_should_decreasePageCount_byOne_when_pageIsEmpty_1 {
+    NSArray *addedIcons = [self addDummyIcons:5];
+    [_cut removeIcon:addedIcons[4]];
+    
+    XCTAssertEqual((NSUInteger) 1, [_cut pageCount], @"expected 1 page, but is: %d", [_cut pageCount]);
 }
+
+- (void) testRemoveIcon_should_decreasePageCount_byOne_when_pageIsEmpty_2 {
+    NSArray *addedIcons = [self addDummyIcons:6];
+    [_cut removeIcon:addedIcons[0]];
+    [_cut removeIcon:addedIcons[1]];
+    [_cut removeIcon:addedIcons[2]];
+    [_cut removeIcon:addedIcons[3]];
+    
+    XCTAssertEqual((NSUInteger) 1, [_cut pageCount], @"expected 1 page, but is: %d", [_cut pageCount]);
+}
+
+
+- (void) testRemoveIcon_should_notChangePageCount_when_pageIsNotEmpty {
+    NSArray *addedIcons = [self addDummyIcons:6];
+    [_cut removeIcon:addedIcons[4]];
+    
+    XCTAssertEqual((NSUInteger) 2, [_cut pageCount], @"expected 2 pages, but is: %d", [_cut pageCount]);
+}
+
 
 - (HMLauncherIcon*) createDummyIcon {
     HMLauncherItem *item = [[HMLauncherItem alloc] init] ;
     [item setIconPath:@"dummy.png"] ;
-    
     HMLauncherIcon *icon = [[HMLauncherIcon alloc] initWithLauncherItem:item];
     return icon;
+}
+
+- (NSArray*) addDummyIcons:(NSInteger) amount {
+    NSMutableArray *addedIcons = [NSMutableArray array];
+    for (int i = 0; i< amount; i++) {
+        HMLauncherIcon *icon = [self createDummyIcon];
+        [addedIcons addObject:icon];
+        [_cut addIcon:icon];
+    }
+    return addedIcons;
 }
 
 

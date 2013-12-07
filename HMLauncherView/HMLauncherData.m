@@ -45,6 +45,7 @@
     NSParameterAssert(icon != nil);
     NSMutableArray *page = [self pageOfIcon:icon];
     [page removeObject:icon];
+    [self removeEmptyPages];
 }
 
 - (void)      addIcon:(HMLauncherIcon*) icon

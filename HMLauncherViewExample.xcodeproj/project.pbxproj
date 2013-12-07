@@ -121,7 +121,6 @@
 		83B437C718317FF100C9C174 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		83B437CB18317FF100C9C174 /* HMLauncherViewExampleTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HMLauncherViewExampleTests-Prefix.pch"; sourceTree = "<group>"; };
 		83B437D11831801B00C9C174 /* dummy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dummy.png; sourceTree = "<group>"; };
-		83B437D21831801B00C9C174 /* HMLauncherDataTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMLauncherDataTest.h; sourceTree = "<group>"; };
 		83B437D31831801B00C9C174 /* HMLauncherDataTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMLauncherDataTest.m; sourceTree = "<group>"; };
 		83C0001E1515380100047174 /* 1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1@2x.png"; sourceTree = "<group>"; };
 		83C0001F1515380200047174 /* 2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "2@2x.png"; sourceTree = "<group>"; };
@@ -240,7 +239,6 @@
 			isa = PBXGroup;
 			children = (
 				83B437D11831801B00C9C174 /* dummy.png */,
-				83B437D21831801B00C9C174 /* HMLauncherDataTest.h */,
 				83B437D31831801B00C9C174 /* HMLauncherDataTest.m */,
 				83B437C418317FF100C9C174 /* Supporting Files */,
 			);
@@ -771,6 +769,7 @@
 				83B437D018317FF100C9C174 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		83DE15FB14FD9236005E1F97 /* Build configuration list for PBXProject "HMLauncherViewExample" */ = {
 			isa = XCConfigurationList;
