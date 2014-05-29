@@ -77,9 +77,11 @@ static const CGFloat kLongPressDuration = 0.3;
 - (void) startScrollTimerWithOffset:(NSInteger) offset;
 - (void) stopScrollTimer;
 
-- (void) updatePagerWithContentOffset:(CGPoint) contentOffset;
+- (void) updatePager;
 - (void) updateScrollViewContentSize;
 - (void) updateDeleteButtons;
+- (void) layoutIconsAnimated;
+- (void) layoutIcons;
 - (UIView*) keyView;
 
 @property (nonatomic, strong) UIScrollView *scrollView;
@@ -454,7 +456,7 @@ static const CGFloat kLongPressDuration = 0.3;
         [self.dataSource addPageToLauncherView:self];
         [self updateDeleteButtons];
         [self updateScrollViewContentSize];        
-        [self updatePagerWithContentOffset:self.scrollView.contentOffset];
+        [self updatePager];
         [self startShaking];
     } else {
         NSLog(@" %@: editing of was already started", self.persistKey);
@@ -468,7 +470,7 @@ static const CGFloat kLongPressDuration = 0.3;
         [self updateDeleteButtons];
         [self.dataSource removeEmptyPages:self];
         [self updateScrollViewContentSize];    
-        [self updatePagerWithContentOffset:self.scrollView.contentOffset];
+        [self updatePager];
         [self setTargetPath:nil];
         [self setDragIcon:nil];
         [self layoutIconsAnimated];
@@ -527,7 +529,7 @@ static const CGFloat kLongPressDuration = 0.3;
     if (allowedToGoLeft || allowedToGoRight) {
         CGRect newPageRect = CGRectMake(newPageX, 0, self.scrollView.bounds.size.width, self.scrollView.bounds.size.height);
         [self.scrollView scrollRectToVisible:newPageRect animated:YES];
-        [self updatePagerWithContentOffset:newPageRect.origin];
+        [self updatePager];
     }
 }
 
@@ -710,12 +712,23 @@ static const CGFloat kLongPressDuration = 0.3;
     }];
 }
 
-- (void)updatePagerWithContentOffset:(CGPoint) contentOffset {
-    NSLog(@"updatePagerWithContentOffset: %@", NSStringFromCGPoint(contentOffset));
-    CGFloat pageWidth = self.scrollView.bounds.size.width;
+- (void)updatePager {
     NSUInteger numberOfPages = [self.dataSource numberOfPagesInLauncherView:self];
     self.pageControl.numberOfPages = numberOfPages;
-    self.pageControl.currentPage = floor((contentOffset.x - pageWidth / 2) / pageWidth) + 1;
+    self.pageControl.currentPage = [self currentPage];
+}
+
+- (void) setCurrentPage:(NSUInteger) currentPage animated:(BOOL) animated {
+    CGFloat pageWidth = self.scrollView.bounds.size.width;
+    CGPoint newOffset = CGPointMake(pageWidth * currentPage, self.scrollView.contentOffset.y);
+    
+    [self.scrollView setContentOffset:newOffset animated:animated];
+    
+}
+
+- (NSUInteger) currentPage {
+    CGFloat pageWidth = self.scrollView.bounds.size.width;
+    return floor((self.scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
 }
 
 #pragma mark - UIScrollViewDelegate
@@ -726,11 +739,11 @@ static const CGFloat kLongPressDuration = 0.3;
         CGPoint centerInLauncherView = [self.dragIcon.superview convertPoint:self.dragIcon.center toView:launcherView];
         [launcherView performMove:self.dragIcon toPoint:centerInLauncherView launcherView:launcherView];
     }
-    [self updatePagerWithContentOffset:inScrollView.contentOffset];
+    [self updatePager];
 }
 
 - (void) scrollViewDidEndDecelerating:(UIScrollView *) inScrollView {
-    [self updatePagerWithContentOffset:inScrollView.contentOffset];    
+    [self updatePager];    
 }
 
 - (NSString*) description {

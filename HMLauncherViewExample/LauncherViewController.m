@@ -37,6 +37,11 @@
     return (LauncherParentView*) self.view;
 }
 
+- (void) didTapChangePage:(UIEvent*) event {
+    [self.launcherParentView.launcherViewLeft setCurrentPage:1 animated:YES];
+    [self.launcherParentView.launcherViewRight setCurrentPage:1 animated:YES];
+}
+
 #pragma mark - View lifecycle
 - (void)loadView {
     LauncherParentView *launcherParentView = [[LauncherParentView alloc] initWithFrame:CGRectZero];
@@ -56,7 +61,6 @@
     [launcherViewLeft setDelegate:self];
     [launcherViewLeft reloadData];
     
-    
     HMLauncherData *launcherDataRight = self.launcherService.launcherDataRight;
     HMLauncherView *launcherViewRight = self.launcherParentView.launcherViewRight;
     NSParameterAssert(launcherViewRight != nil);
@@ -64,6 +68,9 @@
     [launcherViewRight setDataSource:self.launcherService];
     [launcherViewRight setDelegate:self];
     [launcherViewRight reloadData];
+    
+    [self.launcherParentView.changePageButton addTarget:self
+                                                 action:@selector(didTapChangePage:) forControlEvents:UIControlEventTouchUpInside];
     
     [super viewDidLoad];
 }

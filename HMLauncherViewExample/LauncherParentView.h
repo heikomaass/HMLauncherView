@@ -20,5 +20,6 @@
 
 @property (nonatomic, strong) HMLauncherView *launcherViewLeft;
 @property (nonatomic, strong) HMLauncherView *launcherViewRight;
+@property (nonatomic, strong) UIButton *changePageButton;
 
 @end

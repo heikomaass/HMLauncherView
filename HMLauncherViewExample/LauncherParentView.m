@@ -40,6 +40,11 @@
     CGRect launcherViewRightRect =[self centerRectForLauncherView:self.launcherViewRight parentRect:rightHalfRect];
     [self.launcherViewRight setFrame:launcherViewRightRect];
     
+    [self.changePageButton sizeToFit];
+    
+    CGPoint buttonCenter = CGPointMake(self.bounds.size.width /2, self.bounds.size.height - self.changePageButton.bounds.size.height);
+    [self.changePageButton setCenter:buttonCenter];
+    
 }
 
 - (CGRect) centerRectForLauncherView:(HMLauncherView*) launcherView parentRect:(CGRect) parentRect {
@@ -61,15 +66,17 @@
 }
 
 
-
 #pragma mark - lifecycle
 - (id) initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
         [self setAutoresizingMask:UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight];
         _launcherViewLeft = [[HMLauncherView alloc] initWithFrame:CGRectZero];
         _launcherViewRight = [[HMLauncherView alloc] initWithFrame:CGRectZero];
+        _changePageButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [_changePageButton setTitle:@"Switch Page" forState:UIControlStateNormal];
         [self addSubview:_launcherViewLeft];
         [self addSubview:_launcherViewRight];
+        [self addSubview:_changePageButton];
     }
     return self;
 }

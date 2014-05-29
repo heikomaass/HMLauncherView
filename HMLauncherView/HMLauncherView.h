@@ -24,14 +24,19 @@
 - (void) startEditing;
 - (void) stopEditing;
 
+// Jumps to the given (0-based) page
+- (void) setCurrentPage:(NSUInteger) currentPage animated:(BOOL) animated;
+
+// Returns the currentPage (0-based)
+- (NSUInteger) currentPage;
+
 // Adds the icon to the view. Please note that the icon has to be added to the datasource before.
 - (void) addIcon:(HMLauncherIcon*) icon;
 
 // Removes the icon from the view. Please note that the icon will not be removed from the datasource.
 - (void) removeIcon:(HMLauncherIcon*) icon;
 - (void) removeIconAnimated:(HMLauncherIcon*) icon completion:(void (^) (void)) block;
-- (void) layoutIconsAnimated;
-- (void) layoutIcons;
+
 
 @property (nonatomic, assign) BOOL shouldLayoutDragButton;
 @property (nonatomic, readonly) BOOL editing;
