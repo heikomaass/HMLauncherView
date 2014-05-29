@@ -488,7 +488,6 @@ static const CGFloat kLongPressDuration = 0.3;
 
 - (void) startScrollTimerWithOffset:(NSInteger) offset {
     if ([self.delegate targetLauncherViewForIcon:self.dragIcon] != self) {
-        NSLog(@"don't start scroll");
         return;
     }
     NSNumber *springOffsetNumber = @(offset);
@@ -513,7 +512,6 @@ static const CGFloat kLongPressDuration = 0.3;
     self.scrollTimer = nil;
     
     if ([self.delegate targetLauncherViewForIcon:self.dragIcon] != self) {
-        NSLog(@"don't perform scroll");
         return;
     }
     
