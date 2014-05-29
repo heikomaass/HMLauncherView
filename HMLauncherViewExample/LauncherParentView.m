@@ -45,8 +45,8 @@
 - (CGRect) centerRectForLauncherView:(HMLauncherView*) launcherView parentRect:(CGRect) parentRect {
     CGSize buttonDimensionsInLauncherView = [launcherView.dataSource buttonDimensionsInLauncherView:launcherView];
     
-    int rows = [launcherView.dataSource numberOfRowsInLauncherView:launcherView];
-    int cols = [launcherView.dataSource numberOfColumnsInLauncherView:launcherView];
+    NSUInteger rows = [launcherView.dataSource numberOfRowsInLauncherView:launcherView];
+    NSUInteger cols = [launcherView.dataSource numberOfColumnsInLauncherView:launcherView];
     
     CGRect launcherViewRect = CGRectMake(parentRect.origin.x,
                                          parentRect.origin.y, 
