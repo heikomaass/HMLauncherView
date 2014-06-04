@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "HMLauncherView"
-  s.version          = "1.0.0"
+  s.version          = "1.0.1"
   s.summary          = "HMLauncherView is an UI component which mimics the iOS homescreen (a.k.a SpringBoard) behaviour"
   s.description      = <<-DESC
                         HMLauncherView is an UI component which mimics the iOS homescreen (a.k.a SpringBoard) behaviour. 
@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   s.homepage         = "https://github.com/heikomaass/HMLauncherView"
   s.license          = 'Apache 2.0'
   s.author           = { "Heiko Maaß" => "mail@heikomaass.de" }
-  s.source           = { :git => "git@github.com:heikomaass/HMLauncherView.git", :tag => s.version.to_s }
+  s.source           = { :git => "https://github.com/heikomaass/HMLauncherView.git", :tag => s.version.to_s }
 
   s.platform     = :ios, '6.1'
   s.requires_arc = true
