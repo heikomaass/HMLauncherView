@@ -19,11 +19,8 @@
 @implementation HMLauncherIcon
 
 - (BOOL) hitCloseButton:(CGPoint)point {
-    NSAssert(NO, @"this method must be overridden");
+    // to be overridden in subclass
     return NO;
-}
-- (void) drawRect:(CGRect) rect {
-    NSAssert(NO, @"this method must be overridden");
 }
 
 - (void) setHighlighted:(BOOL)highlighted {
