@@ -10,7 +10,6 @@
 		8339FD9414FE582E003BB71C /* LauncherExampleIcon.m in Sources */ = {isa = PBXBuildFile; fileRef = 8339FD9314FE582E003BB71C /* LauncherExampleIcon.m */; };
 		8339FD9614FE649E003BB71C /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = 8339FD9514FE649E003BB71C /* close.png */; };
 		8339FDA714FE7045003BB71C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8339FDA614FE7045003BB71C /* Localizable.strings */; };
-		8343A2E7151D093B00460638 /* libHMLauncherView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8343A2E4151D090600460638 /* libHMLauncherView.a */; };
 		83B437C018317FF000C9C174 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83C69BA1183019A800B0FA8B /* XCTest.framework */; };
 		83B437C118317FF100C9C174 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83DE160714FD9236005E1F97 /* Foundation.framework */; };
 		83B437C218317FF100C9C174 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83DE160514FD9236005E1F97 /* UIKit.framework */; };
@@ -85,29 +84,16 @@
 		83DE167F14FD9302005E1F97 /* LauncherService.m in Sources */ = {isa = PBXBuildFile; fileRef = 83DE165B14FD9302005E1F97 /* LauncherService.m */; };
 		83DE168014FD9302005E1F97 /* LauncherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83DE165D14FD9302005E1F97 /* LauncherViewController.m */; };
 		83F121CB1515E9590071A0C5 /* close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 83F121CA1515E9580071A0C5 /* close@2x.png */; };
+		BAFC18DF69384A11B91995E9 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 892BB79E084343B2AFA9A24A /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		8343A2E3151D090600460638 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 83DE162214FD9261005E1F97 /* HMLauncherView.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 83DE15A814FD8FF2005E1F97;
-			remoteInfo = HMLauncherView;
-		};
-		8343A2E5151D090600460638 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 83DE162214FD9261005E1F97 /* HMLauncherView.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 83DE15B814FD8FF3005E1F97;
-			remoteInfo = HMLauncherViewTests;
-		};
-		83B437CC18317FF100C9C174 /* PBXContainerItemProxy */ = {
+		83D4CCB6193FC9CF003CFC63 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 83DE15F814FD9236005E1F97 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 83DE160014FD9236005E1F97;
-			remoteInfo = HMLauncherViewExample;
+			remoteInfo = Demo;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -152,7 +138,7 @@
 		83C000391515380C00047174 /* l@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "l@2x.png"; sourceTree = "<group>"; };
 		83C0003A1515380D00047174 /* m@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "m@2x.png"; sourceTree = "<group>"; };
 		83C69BA1183019A800B0FA8B /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		83DE160114FD9236005E1F97 /* HMLauncherViewExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HMLauncherViewExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		83DE160114FD9236005E1F97 /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83DE160514FD9236005E1F97 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		83DE160714FD9236005E1F97 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		83DE160914FD9236005E1F97 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -160,7 +146,6 @@
 		83DE160F14FD9236005E1F97 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		83DE161114FD9236005E1F97 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		83DE161314FD9236005E1F97 /* HMLauncherViewExample-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HMLauncherViewExample-Prefix.pch"; sourceTree = "<group>"; };
-		83DE162214FD9261005E1F97 /* HMLauncherView.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = HMLauncherView.xcodeproj; sourceTree = SOURCE_ROOT; };
 		83DE163614FD92F4005E1F97 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		83DE163714FD9302005E1F97 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		83DE163914FD9302005E1F97 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
@@ -199,6 +184,9 @@
 		83DE165C14FD9302005E1F97 /* LauncherViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LauncherViewController.h; sourceTree = "<group>"; };
 		83DE165D14FD9302005E1F97 /* LauncherViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LauncherViewController.m; sourceTree = "<group>"; };
 		83F121CA1515E9580071A0C5 /* close@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "close@2x.png"; sourceTree = "<group>"; };
+		892BB79E084343B2AFA9A24A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		94700FAB23FD40269147790D /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		98645BC199B242EC9E0CFB9A /* Pods-Demo.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo.xcconfig"; path = "Pods/Pods-Demo.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,25 +204,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8343A2E7151D093B00460638 /* libHMLauncherView.a in Frameworks */,
 				83DE160614FD9236005E1F97 /* UIKit.framework in Frameworks */,
 				83DE160814FD9236005E1F97 /* Foundation.framework in Frameworks */,
 				83DE160A14FD9236005E1F97 /* CoreGraphics.framework in Frameworks */,
+				BAFC18DF69384A11B91995E9 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		8343A2DF151D090600460638 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				8343A2E4151D090600460638 /* libHMLauncherView.a */,
-				8343A2E6151D090600460638 /* HMLauncherViewTests.octest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		83B437C318317FF100C9C174 /* HMLauncherViewExampleTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -258,18 +237,19 @@
 		83DE15F614FD9236005E1F97 = {
 			isa = PBXGroup;
 			children = (
-				83DE162214FD9261005E1F97 /* HMLauncherView.xcodeproj */,
 				83DE160B14FD9236005E1F97 /* HMLauncherViewExample */,
 				83B437C318317FF100C9C174 /* HMLauncherViewExampleTests */,
 				83DE160414FD9236005E1F97 /* Frameworks */,
 				83DE160214FD9236005E1F97 /* Products */,
+				98645BC199B242EC9E0CFB9A /* Pods-Demo.xcconfig */,
+				94700FAB23FD40269147790D /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
 		83DE160214FD9236005E1F97 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				83DE160114FD9236005E1F97 /* HMLauncherViewExample.app */,
+				83DE160114FD9236005E1F97 /* Demo.app */,
 				83B437BF18317FF000C9C174 /* HMLauncherViewExampleTests.xctest */,
 			);
 			name = Products;
@@ -282,6 +262,7 @@
 				83DE160714FD9236005E1F97 /* Foundation.framework */,
 				83DE160914FD9236005E1F97 /* CoreGraphics.framework */,
 				83C69BA1183019A800B0FA8B /* XCTest.framework */,
+				892BB79E084343B2AFA9A24A /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -391,35 +372,39 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 83B437CE18317FF100C9C174 /* Build configuration list for PBXNativeTarget "HMLauncherViewExampleTests" */;
 			buildPhases = (
+				F6A71098E53C477C8ECB78A3 /* Check Pods Manifest.lock */,
 				83B437BB18317FF000C9C174 /* Sources */,
 				83B437BC18317FF000C9C174 /* Frameworks */,
 				83B437BD18317FF000C9C174 /* Resources */,
+				E036D9E534F74C69A2EA5691 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				83B437CD18317FF100C9C174 /* PBXTargetDependency */,
+				83D4CCB7193FC9CF003CFC63 /* PBXTargetDependency */,
 			);
 			name = HMLauncherViewExampleTests;
 			productName = HMLauncherViewExampleTests;
 			productReference = 83B437BF18317FF000C9C174 /* HMLauncherViewExampleTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		83DE160014FD9236005E1F97 /* HMLauncherViewExample */ = {
+		83DE160014FD9236005E1F97 /* Demo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 83DE161F14FD9236005E1F97 /* Build configuration list for PBXNativeTarget "HMLauncherViewExample" */;
+			buildConfigurationList = 83DE161F14FD9236005E1F97 /* Build configuration list for PBXNativeTarget "Demo" */;
 			buildPhases = (
+				465586C92ED04D0A9089510B /* Check Pods Manifest.lock */,
 				83DE15FD14FD9236005E1F97 /* Sources */,
 				83DE15FE14FD9236005E1F97 /* Frameworks */,
 				83DE15FF14FD9236005E1F97 /* Resources */,
+				886A66466B9E4FB09F6FB5DC /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = HMLauncherViewExample;
+			name = Demo;
 			productName = HMLauncherViewExample;
-			productReference = 83DE160114FD9236005E1F97 /* HMLauncherViewExample.app */;
+			productReference = 83DE160114FD9236005E1F97 /* Demo.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -446,36 +431,13 @@
 			mainGroup = 83DE15F614FD9236005E1F97;
 			productRefGroup = 83DE160214FD9236005E1F97 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 8343A2DF151D090600460638 /* Products */;
-					ProjectRef = 83DE162214FD9261005E1F97 /* HMLauncherView.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
-				83DE160014FD9236005E1F97 /* HMLauncherViewExample */,
+				83DE160014FD9236005E1F97 /* Demo */,
 				83B437BE18317FF000C9C174 /* HMLauncherViewExampleTests */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		8343A2E4151D090600460638 /* libHMLauncherView.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libHMLauncherView.a;
-			remoteRef = 8343A2E3151D090600460638 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		8343A2E6151D090600460638 /* HMLauncherViewTests.octest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = HMLauncherViewTests.octest;
-			remoteRef = 8343A2E5151D090600460638 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		83B437BD18317FF000C9C174 /* Resources */ = {
@@ -558,6 +520,69 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		465586C92ED04D0A9089510B /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		886A66466B9E4FB09F6FB5DC /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E036D9E534F74C69A2EA5691 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F6A71098E53C477C8ECB78A3 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		83B437BB18317FF000C9C174 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -583,10 +608,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		83B437CD18317FF100C9C174 /* PBXTargetDependency */ = {
+		83D4CCB7193FC9CF003CFC63 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 83DE160014FD9236005E1F97 /* HMLauncherViewExample */;
-			targetProxy = 83B437CC18317FF100C9C174 /* PBXContainerItemProxy */;
+			target = 83DE160014FD9236005E1F97 /* Demo */;
+			targetProxy = 83D4CCB6193FC9CF003CFC63 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -612,8 +637,9 @@
 /* Begin XCBuildConfiguration section */
 		83B437CF18317FF100C9C174 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 94700FAB23FD40269147790D /* Pods.xcconfig */;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/HMLauncherViewExample.app/HMLauncherViewExample";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Demo.app/Demo";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -642,8 +668,8 @@
 		};
 		83B437D018317FF100C9C174 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 94700FAB23FD40269147790D /* Pods.xcconfig */;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/HMLauncherViewExample.app/HMLauncherViewExample";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -735,6 +761,7 @@
 		};
 		83DE162014FD9236005E1F97 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 94700FAB23FD40269147790D /* Pods.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -747,6 +774,7 @@
 		};
 		83DE162114FD9236005E1F97 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 94700FAB23FD40269147790D /* Pods.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -778,7 +806,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		83DE161F14FD9236005E1F97 /* Build configuration list for PBXNativeTarget "HMLauncherViewExample" */ = {
+		83DE161F14FD9236005E1F97 /* Build configuration list for PBXNativeTarget "Demo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				83DE162014FD9236005E1F97 /* Debug */,

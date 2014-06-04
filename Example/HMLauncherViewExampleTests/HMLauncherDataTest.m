@@ -41,22 +41,22 @@
 
 - (void) testAddIcon_should_increaseIconCount_byOne {
     [self addDummyIcons:1];
-    XCTAssertEqual((NSUInteger) 1, [_cut iconCount], @"expected 1 icon, but is: %ld", [_cut iconCount]);
+    XCTAssertEqual((NSUInteger) 1, [_cut iconCount], @"expected 1 icon, but is: %ld", (unsigned long)[_cut iconCount]);
 }
 
 - (void) testAddIcon_should_increasePageCount_byOne {
     [self addDummyIcons:1];
-    XCTAssertEqual((NSUInteger) 1, [_cut pageCount], @"expected 1 page, but is: %ld", [_cut pageCount]);
+    XCTAssertEqual((NSUInteger) 1, [_cut pageCount], @"expected 1 page, but is: %ld", (unsigned long)[_cut pageCount]);
 }
 
 - (void) testAddIcon_should_increaseIconCount_byFive {
     [self addDummyIcons:5];
-    XCTAssertEqual((NSUInteger) 5, [_cut iconCount], @"expected 5 icon, but is: %ld", [_cut iconCount]);
+    XCTAssertEqual((NSUInteger) 5, [_cut iconCount], @"expected 5 icon, but is: %ld", (unsigned long)[_cut iconCount]);
 }
 
 - (void) testAddIcon_should_increasePageCounty_byTwo {
     [self addDummyIcons:5];
-    XCTAssertEqual((NSUInteger) 2, [_cut pageCount], @"expected 2 page, but is: %ld", [_cut pageCount]);
+    XCTAssertEqual((NSUInteger) 2, [_cut pageCount], @"expected 2 page, but is: %ld", (unsigned long)[_cut pageCount]);
 }
 
 - (void) testRemoveIcon_should_decreaseIconCount_byOne {

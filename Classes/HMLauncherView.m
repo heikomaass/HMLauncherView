@@ -140,7 +140,6 @@ static const CGFloat kLongPressDuration = 0.3;
     [UIView animateWithDuration:0.25 animations:^{
         icon.transform = CGAffineTransformMakeScale(0.1, 0.1);
     } completion:^(BOOL finished) {
-        NSLog(@"removeIconAnimated finished");
         [self removeIcon:icon];
         block();
     }];
@@ -341,7 +340,6 @@ static const CGFloat kLongPressDuration = 0.3;
 }
 
 - (void) longPressBegan:(HMLauncherIcon*) icon {
-    NSLog(@"longPressBegan: %@", self.persistKey);
     if (!self.editing) {
         [self startEditing];
         if ([self.delegate respondsToSelector:@selector(launcherViewDidStartEditing:)]) {
@@ -387,7 +385,6 @@ static const CGFloat kLongPressDuration = 0.3;
 
 - (void) longPressEnded:(HMLauncherIcon*) icon {
     HMLauncherView *targetLauncherView = [self.delegate targetLauncherViewForIcon:icon];
-    NSLog(@"launcherView responsible: %@", targetLauncherView);
     if (targetLauncherView == nil) {
         targetLauncherView = self;
         self.targetPath = nil;
@@ -407,13 +404,11 @@ static const CGFloat kLongPressDuration = 0.3;
                                       toIndex:iconIndex];
                 
             } else {
-                NSLog(@"removing icon: %@ from launcherView: %@", self.dragIcon, self);
                 [self.dataSource launcherView:self removeIcon:self.dragIcon];
                 if ([self.delegate respondsToSelector:@selector(launcherView:didDeleteIcon:)]) {
                     [self.delegate launcherView:self didDeleteIcon:self.dragIcon];                    
                 }
 
-                NSLog(@"adding icon: %@ to launcherView: %@", self.dragIcon, targetLauncherView);
                 if ([self.delegate respondsToSelector:@selector(launcherView:willAddIcon:)]) {
                     [targetLauncherView.delegate launcherView:targetLauncherView willAddIcon:self.dragIcon];                                
                 }
@@ -458,8 +453,6 @@ static const CGFloat kLongPressDuration = 0.3;
         [self updateScrollViewContentSize];        
         [self updatePager];
         [self startShaking];
-    } else {
-        NSLog(@" %@: editing of was already started", self.persistKey);
     }
 }
 
@@ -474,10 +467,7 @@ static const CGFloat kLongPressDuration = 0.3;
         [self setTargetPath:nil];
         [self setDragIcon:nil];
         [self layoutIconsAnimated];
-    } else {
-        NSLog(@" %@: editing of was already stopped", self.persistKey);
     }
-    
 }
 
 - (void) checkIfScrollingIsNeeded:(HMLauncherIcon*) launcherIcon {
