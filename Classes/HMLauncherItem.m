@@ -1,5 +1,5 @@
 //
-// Copyright 2012 Heiko Maaß (mail@heikomaass.de)
+// Copyright 2014 Heiko Maaß (mail@heikomaass.de)
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.

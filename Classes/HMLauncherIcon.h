@@ -1,5 +1,5 @@
 //
-// Copyright 2012 Heiko Maaß (mail@heikomaass.de)
+// Copyright 2014 Heiko Maaß (mail@heikomaass.de)
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -17,8 +17,11 @@
 @class HMLauncherView;
 @class HMLauncherItem;
 
-// Base class for an Icon. You've to extend from this class.
-// See LauncherExampleIcon.h for an example.
+/**
+ Base class for an Icon. You've to extend from this class. Each `HMLauncherIcon` needs a `HMLauncherItem`
+ which represents the persistable data of an icon.
+ @see LauncherExampleIcon.h in the Example project.
+ **/
 @interface HMLauncherIcon : UIControl {
 }
 @property (nonatomic, assign) BOOL canBeDeleted;
@@ -29,7 +32,9 @@
 @property (nonatomic, strong) NSIndexPath *originIndexPath;
 @property (nonatomic, strong) HMLauncherItem *launcherItem;
 
-// Should return YES, if the close button contains the given point. 
+/**
+ Should return `YES`, when the close button contains the given point.
+ **/
 - (BOOL) hitCloseButton:(CGPoint) point;
 
 - (id) initWithLauncherItem: (HMLauncherItem*) launcherItem;

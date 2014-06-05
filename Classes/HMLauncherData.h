@@ -1,5 +1,5 @@
 //
-// Copyright 2012 Heiko Maaß (mail@heikomaass.de)
+// Copyright 2014 Heiko Maaß (mail@heikomaass.de)
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -17,7 +17,9 @@
 #import "HMLauncherIcon.h"
 
 
-// HMLauncherData contains a list of pages. Each page is represented by a NSMutableArray.
+/**
+ HMLauncherData contains a list of pages. Each page is represented by a NSMutableArray containing all `HMLauncherIcon`s of the page.
+ **/
 @interface HMLauncherData : NSObject
 
 @property (nonatomic, assign) NSInteger maxRows;
@@ -28,13 +30,13 @@
 
 - (void)  addIcon:(HMLauncherIcon*) icon;
 
-- (void)      addIcon:(HMLauncherIcon*) icon
-            pageIndex:(NSUInteger) pageIndex
-            iconIndex:(NSUInteger) iconIndex;
+- (void)  addIcon:(HMLauncherIcon*) icon
+        pageIndex:(NSUInteger) pageIndex
+        iconIndex:(NSUInteger) iconIndex;
 
-- (void)     moveIcon: (HMLauncherIcon*) icon 
-               toPage: (NSUInteger) pageIndex
-              toIndex: (NSUInteger) iconIndex;
+- (void) moveIcon: (HMLauncherIcon*) icon
+           toPage: (NSUInteger) pageIndex
+          toIndex: (NSUInteger) iconIndex;
 
 - (void) removeIcon:(HMLauncherIcon*) icon;
 
