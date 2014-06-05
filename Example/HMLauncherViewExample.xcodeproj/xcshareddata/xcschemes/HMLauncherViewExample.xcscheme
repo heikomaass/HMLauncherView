@@ -57,7 +57,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "83B437BE18317FF000C9C174"
-               BuildableName = "DemoTests.xctest"
+               BuildableName = "HMLauncherViewExampleTests.xctest"
                BlueprintName = "HMLauncherViewExampleTests"
                ReferencedContainer = "container:HMLauncherViewExample.xcodeproj">
             </BuildableReference>
