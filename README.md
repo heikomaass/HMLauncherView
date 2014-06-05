@@ -6,13 +6,22 @@
 
 HMLauncherView is an UI component which mimics the iOS homescreen (a.k.a SpringBoard) behaviour. 
 Added icons can be reordered and removed. In addition the HMLauncherView supports drag&drop of icons between several HMLauncherView instances.
-Checkout the demo video: http://www.youtube.com/watch?v=Mqv1usdM6fA 
+Checkout the demo video: 
+
+http://www.youtube.com/watch?v=Mqv1usdM6fA 
 
 ## Usage
 
 To run the example project; clone the repo, and run `pod install` from the Example directory first.
 
-## Requirements
+The HMLaucherView needs a datasource and a delegate. The implementation of `HMLauncherDataSource` has to provide the grid dimensions (columns/rows), the number of pages,
+and accessor methods to the `HMLaucherIcon`s, which represents the icons of the laucher view. 
+
+The `HMLauncherViewDelegate` should react to any interactions (like dragging, tapping, deleting) on the launcher view. In addition the delegate is resposible to find out
+to which the current dragged `HMLaucherIcon` belongs to.  
+
+Checkout the [LauncherService](Example/HMLauncherViewExample/LauncherService.m) class of the example project.
+
 
 ## Installation
 
