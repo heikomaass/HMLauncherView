@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "HMLauncherView"
-  s.version          = "1.0.2"
+  s.version          = "1.0.3"
   s.summary          = "HMLauncherView is an UI component which mimics the iOS homescreen (a.k.a SpringBoard) behaviour"
   s.description      = <<-DESC
                         HMLauncherView is an UI component which mimics the iOS homescreen (a.k.a SpringBoard) behaviour. 
