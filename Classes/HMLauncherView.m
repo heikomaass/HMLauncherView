@@ -150,6 +150,11 @@ static const CGFloat kLongPressDuration = 0.3;
 }
 
 - (UIView *) keyView {
+    
+    if (_keyView) {
+        return _keyView;
+    }
+    
 	UIWindow *w = [[UIApplication sharedApplication] keyWindow];
 	if (w.subviews.count > 0) {
 		return [w.subviews lastObject];
