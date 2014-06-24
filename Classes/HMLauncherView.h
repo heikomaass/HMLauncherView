@@ -55,5 +55,6 @@
 @property (nonatomic, weak) NSObject<HMLauncherDataSource> *dataSource;
 @property (nonatomic, weak) NSObject<HMLauncherViewDelegate> *delegate;
 @property (nonatomic, strong) NSString *persistKey;
+@property (nonatomic, weak) UIView *keyView;
 
 @end
