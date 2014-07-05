@@ -7,8 +7,7 @@
 HMLauncherView is an UI component which mimics the iOS homescreen (a.k.a SpringBoard) behaviour. 
 Added icons can be reordered and removed. In addition the HMLauncherView supports drag&drop of icons between several HMLauncherView instances.
 Checkout the demo video: 
-
-http://www.youtube.com/watch?v=Mqv1usdM6fA 
+[![Demo Video showing the launcher icon movement](https://i1.ytimg.com/vi/Mqv1usdM6fA/mqdefault.jpg)](https://www.youtube.com/watch?v=Mqv1usdM6fA)
 
 ## Usage
 
